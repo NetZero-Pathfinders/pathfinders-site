@@ -1,4 +1,4 @@
-import { Box } from "@chakra-ui/layout"
+import { Box } from "@chakra-ui/react"
 
 export function Icon({
   size = "1.25rem",
