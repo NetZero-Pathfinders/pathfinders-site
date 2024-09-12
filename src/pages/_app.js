@@ -3,6 +3,7 @@ import {
   extendTheme,
   theme as defaultTheme,
 } from "@chakra-ui/react"
+import Script from "next/script"
 
 const theme = extendTheme({
   fonts: {
@@ -31,8 +32,11 @@ const theme = extendTheme({
 
 export default function App({ Component, pageProps }) {
   return (
-    <ChakraProvider theme={theme}>
-      <Component {...pageProps} />
-    </ChakraProvider>
+    <>
+      <ChakraProvider theme={theme}>
+        <Component {...pageProps} />
+      </ChakraProvider>
+      <Script src="https://scripts.simpleanalyticscdn.com/latest.js" />
+    </>
   )
 }
