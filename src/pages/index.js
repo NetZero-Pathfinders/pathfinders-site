@@ -1,9 +1,17 @@
-import { SimpleGrid, Center, Stack, Heading, Text, Box } from "@chakra-ui/react"
+import {
+  SimpleGrid,
+  Center,
+  Stack,
+  Heading,
+  Text,
+  Box,
+  Button,
+} from "@chakra-ui/react"
 
 import SEO from "@/components/SEO"
 import Logo from "@/components/Logo"
 import DotGrid from "@/components/DotGrid"
-import { ButtonLink } from "@/components/Link"
+// import { ButtonLink } from "@/components/Link"
 import { DownloadIcon } from "@/components/Icon"
 
 export default function IndexPage() {
@@ -46,7 +54,8 @@ export default function IndexPage() {
                 {"A Framework for Policymakers"}
               </Text>
             </Heading>
-            <ButtonLink
+            <Button
+              as="a"
               href="/downloads/Netzero Pathfinders Delivering Net Zero - A Framework for Policymakers.pdf"
               variant="outline"
               colorScheme="whiteAlpha"
@@ -60,7 +69,7 @@ export default function IndexPage() {
               }}
             >
               {"Download report"}
-            </ButtonLink>
+            </Button>
           </Stack>
         </Center>
 
