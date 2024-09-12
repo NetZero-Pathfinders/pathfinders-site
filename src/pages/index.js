@@ -54,6 +54,10 @@ export default function IndexPage() {
               size="2xl"
               gap={4}
               rightIcon={<DownloadIcon size="2rem" />}
+              onClick={() => {
+                if (!window.sa_event || !window.sa_loaded) return
+                window.sa_event("Download Report")
+              }}
             >
               {"Download report"}
             </ButtonLink>
