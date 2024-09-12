@@ -15,6 +15,7 @@ export default function IndexPage() {
         columns={1}
         gridGap={0}
         alignItems="center"
+        bg="#111111"
         bgImage="/images/cover.jpg"
         bgSize="cover"
         bgPosition="center"
