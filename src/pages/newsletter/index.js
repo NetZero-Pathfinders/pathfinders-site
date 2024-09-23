@@ -28,7 +28,7 @@ const content = {
   backButton: { label: "Home", href: "/" },
   title: "Newsletter",
   introduction:
-    "Our quarterly newsletter presents best practices to decarbonize major emitting sectors of the global economy. ",
+    "The Quarterly publication presents best practices to decarbonize major emitting sectors of the global economy. If you would like to be notified about new quarterly editions directly via email, please subscribe.",
   links: [
     { key: 1, label: "NetZero pillars", href: "/" },
     { key: 2, label: "Emitting sectors", href: "/" },

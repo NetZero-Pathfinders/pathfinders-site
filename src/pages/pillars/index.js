@@ -30,7 +30,7 @@ const content = {
   backButton: { label: "Home", href: "/" },
   title: "NetZero pillars",
   introduction:
-    "Explore options for addressing climate challenges and learn more about the key challenges policy makers face.",
+    "Discover the four pillars of net-zero strategies which underpin policymakers' climate priorities. These cover how to accelerate and support the deployment of both mature and newer climate technologies, how to wind down carbon-intensive activities and how to create governance structures that can accelerate the transition.",
   links: [{ key: 1, label: "Emitting sectors", href: "/sectors" }],
 }
 

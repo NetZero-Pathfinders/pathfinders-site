@@ -41,7 +41,7 @@ const content = {
   backButton: { label: "Home", href: "/" },
   title: "Best practices",
   introduction:
-    "Explore field-tested policies and innovative measures that can be implemented today. This is just some filler text for this page.",
+    "Through trial and error, governments and others have been testing low-carbon policies for more than two decades. Pathfinders therefore highlights ‘best practices’ – that is, tried-and-true programs that have proved effective at driving decarbonization, as well as newer measures with high potential for future impact.",
   links: [
     { key: 1, label: "NetZero pillars", href: "/" },
     { key: 2, label: "Emitting sectors", href: "/" },
