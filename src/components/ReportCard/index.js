@@ -141,7 +141,7 @@ export function ReportCardLg({
       >
         <Box as="picture">
           <img
-            src={cover}
+            src={`/images/${cover}`}
             alt={title}
             style={{
               width: "100%",

@@ -38,7 +38,7 @@ const content = {
   backButton: { label: "Home", href: "/" },
   title: "Emitting sectors",
   introduction:
-    "There are five major emitting sectors responsible for the majority of global emissions",
+    "Explore the key challenges of decarbonizing the five major emitting sectors responsible for the majority of global emissions.",
   links: [{ key: 1, label: "NetZero pillars", href: "/pillars" }],
 }
 

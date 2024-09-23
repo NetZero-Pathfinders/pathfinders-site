@@ -22,7 +22,7 @@ const content = {
   backButton: { label: "Home", href: "/" },
   title: "Reports",
   introduction:
-    "Explore options for addressing climate challenges and learn more about the key challenges policy makers face.",
+    "Explore our publications to learn more about the key decarbonization challenges facing policymakers today",
   links: [{ key: 1, label: "Sign up to the newsletter", href: "/newsletter" }],
 }
 
@@ -72,13 +72,14 @@ export default function ReportsPage({ reports }) {
         <Container>
           <Stack spacing={20} px={5}>
             {reports.map((report) => {
-              const { title, description, slug } = report.frontmatter
+              const { title, description, slug, cover } = report.frontmatter
               return (
                 <ReportCardLg
                   key={report.slug}
                   title={title}
                   description={description}
                   href={report.slug}
+                  cover={cover}
                 />
               )
             })}

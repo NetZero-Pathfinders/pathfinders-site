@@ -32,7 +32,7 @@ const content = {
   backButton: { label: "Home", href: "/" },
   title: "Key stakeholders",
   introduction:
-    "Explore options for addressing climate challenges and learn more about the key challenges policy makers face.",
+    "",
   links: [{ key: 1, label: "Emitting sectors", href: "/sectors" }],
 }
 
