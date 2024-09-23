@@ -2,7 +2,7 @@ import {
   Box,
   SimpleGrid,
   Stack,
-  Heading,
+  // Heading,
   Text,
   Divider,
   HStack,
@@ -17,12 +17,12 @@ import {
   InstagramIcon,
 } from "@/components/Icon"
 import { Link, ButtonLink } from "@/components/Link"
-import NewsletterForm from "@/components/NewsletterForm"
+// import NewsletterForm from "@/components/NewsletterForm"
 
-export default function SiteFooter({ navigation }) {
+export default function SiteFooter() {
   return (
     <Box bg="black" color="white" pb={12}>
-      <Container>
+      {/* <Container>
         <SimpleGrid py={24} px={5} columns={8} gridGap={6}>
           <Stack spacing={6} gridColumn={["1 / -1", null, null, "1 / span 6"]}>
             <Heading fontSize="3xl">{"Subscribe to our newsletter"}</Heading>
@@ -37,7 +37,7 @@ export default function SiteFooter({ navigation }) {
           </Box>
         </SimpleGrid>
         <Divider borderBottomColor="gray.600" mx={5} />
-      </Container>
+      </Container> */}
 
       <Container>
         <SimpleGrid
@@ -222,22 +222,6 @@ export default function SiteFooter({ navigation }) {
                 </ButtonLink>
               </HStack>
             </HStack>
-            {/* <HStack justifyContent="space-between">
-              <Text fontSize="2xl" fontWeight="600">
-                {"Follow BloombergNEF"}
-              </Text>
-              <HStack spacing={6}>
-                <Link href="/reports" fontSize="xl" fontWeight="600">
-                  {"Twitter"}
-                </Link>
-                <Link href="/reports" fontSize="xl" fontWeight="600">
-                  {"Linkedin"}
-                </Link>
-                <Link href="/reports" fontSize="xl" fontWeight="600">
-                  {"Facebook"}
-                </Link>
-              </HStack>
-            </HStack> */}
           </Stack>
         </SimpleGrid>
         <Divider borderBottomColor="gray.600" mx={5} />

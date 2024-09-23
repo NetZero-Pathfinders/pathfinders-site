@@ -420,10 +420,10 @@ export default function NavigationOverlay({ navigation }) {
                             slug: "/about",
                             label: "About NetZero Pathfinders",
                           },
-                          {
-                            slug: "/newsletter",
-                            label: "Newsletter",
-                          },
+                          // {
+                          //   slug: "/newsletter",
+                          //   label: "Newsletter",
+                          // },
                           {
                             slug: "/reports",
                             label: "Reports",

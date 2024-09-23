@@ -1,4 +1,4 @@
-import { ChakraProvider } from "@chakra-ui/react"
+import { ChakraProvider, Box } from "@chakra-ui/react"
 // import { AnimatePresence, motion } from "framer-motion"
 // import { useRouter } from "next/router"
 
@@ -34,8 +34,10 @@ export default function App({ Component, pageProps }) {
           <Component {...pageProps} />
         </motion.main>
       </AnimatePresence> */}
-      <Component {...pageProps} />
-      <SiteFooter navigation={pageProps?.navigation || {}} />
+      <Box bg="white" minH="100vh">
+        <Component {...pageProps} />
+      </Box>
+      <SiteFooter />
     </ChakraProvider>
   )
 }
