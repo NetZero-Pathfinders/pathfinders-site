@@ -18,6 +18,8 @@ import {
   CloseIcon,
   TwitterIcon,
   LinkedinIcon,
+  FacebookIcon,
+  EmailIcon,
 } from "@/components/Icon"
 import { ButtonLink } from "@/components/Link"
 import { useShareButton } from "@/components/ShareButton"
@@ -87,7 +89,7 @@ export default function PageHeaderShareButton(props) {
                   _hover={{ bg: "blue.500" }}
                   textAlign="left"
                   justifyContent="flex-start"
-                  leftIcon={<ShareIcon />}
+                  leftIcon={<FacebookIcon />}
                   href={shareLinks.facebook}
                 >
                   {"Facebook"}
@@ -109,7 +111,7 @@ export default function PageHeaderShareButton(props) {
                   _hover={{ bg: "blue.500" }}
                   textAlign="left"
                   justifyContent="flex-start"
-                  leftIcon={<ShareIcon />}
+                  leftIcon={<EmailIcon />}
                   href={shareLinks.email}
                 >
                   {"Email"}
