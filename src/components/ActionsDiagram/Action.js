@@ -5,7 +5,7 @@ import { motion } from "framer-motion"
 import { ArrowRightIcon } from "@/components/Icon"
 import { LinkBox, LinkOverlay } from "@/components/Link"
 
-const MotionBox = motion(Box)
+const MotionBox = motion.create(Box)
 
 export default function Action({
   gridColumn,

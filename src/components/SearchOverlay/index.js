@@ -1,4 +1,4 @@
-import { useRef } from "react"
+import { useRef, useEffect } from "react"
 import {
   Box,
   HStack,
@@ -12,6 +12,7 @@ import {
 } from "@chakra-ui/react"
 import { create } from "zustand"
 import _sortBy from "lodash/sortBy"
+import { useRouter } from "next/router"
 
 import Logo from "@/components/Logo"
 import { Link } from "@/components/Link"
@@ -37,17 +38,25 @@ export default function SearchOverlay() {
   const closeRef = useRef()
   const inputRef = useRef()
 
-  const handleClick = (e) => {
-    // if (isOpen) onClose(e)
-    // else onOpen(e)
-  }
-
   const { colors } = useTheme()
 
   const handleToggle = (e) => {
     if (isOpen) onClose(e)
     else onOpen(e)
   }
+
+  const router = useRouter()
+
+  useEffect(() => {
+    if (typeof window === "undefined") return undefined
+    const handleRouteChangeComplete = () => {
+      onClose()
+    }
+    router.events.on("routeChangeComplete", handleRouteChangeComplete)
+    return () => {
+      router.events.off("routeChangeComplete", handleRouteChangeComplete)
+    }
+  }, [router, onClose])
 
   return (
     <Box>
@@ -95,14 +104,7 @@ export default function SearchOverlay() {
                   zIndex={1}
                   boxShadow={`0 0.0625rem 0 ${colors.gray[200]}`}
                 >
-                  <Link
-                    variant="logo"
-                    href="/"
-                    flex="none"
-                    w="9.375rem"
-                    p={1}
-                    onClick={handleClick}
-                  >
+                  <Link variant="logo" href="/" flex="none" w="9.375rem" p={1}>
                     <Logo />
                   </Link>
                   <Button

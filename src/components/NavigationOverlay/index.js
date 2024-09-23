@@ -1,4 +1,4 @@
-import { useRef } from "react"
+import { useRef, useEffect } from "react"
 import {
   Box,
   HStack,
@@ -17,6 +17,7 @@ import {
 import { motion } from "framer-motion"
 import { create } from "zustand"
 import _sortBy from "lodash/sortBy"
+import { useRouter } from "next/router"
 
 import Logo from "@/components/Logo"
 import { Link, LinkBox, LinkOverlay, ButtonLink } from "@/components/Link"
@@ -43,17 +44,25 @@ export default function NavigationOverlay({ navigation }) {
   const btnRef = useRef()
   const closeRef = useRef()
 
-  const handleClick = (e) => {
-    // if (isOpen) onClose(e)
-    // else onOpen(e)
-  }
-
   const { colors } = useTheme()
 
   const handleToggle = (e) => {
     if (isOpen) onClose(e)
     else onOpen(e)
   }
+
+  const router = useRouter()
+
+  useEffect(() => {
+    if (typeof window === "undefined") return undefined
+    const handleRouteChangeComplete = () => {
+      onClose()
+    }
+    router.events.on("routeChangeComplete", handleRouteChangeComplete)
+    return () => {
+      router.events.off("routeChangeComplete", handleRouteChangeComplete)
+    }
+  }, [router, onClose])
 
   return (
     <Box>
@@ -75,7 +84,6 @@ export default function NavigationOverlay({ navigation }) {
         size="full"
         trapFocus
       >
-        {/* <DrawerOverlay /> */}
         <DrawerContent
           p={0}
           motionProps={{
@@ -106,14 +114,7 @@ export default function NavigationOverlay({ navigation }) {
                   zIndex={1}
                   boxShadow={`0 0.0625rem 0 ${colors.gray[200]}`}
                 >
-                  <Link
-                    variant="logo"
-                    href="/"
-                    flex="none"
-                    w="9.375rem"
-                    p={1}
-                    onClick={handleClick}
-                  >
+                  <Link variant="logo" href="/" flex="none" w="9.375rem" p={1}>
                     <Logo />
                   </Link>
                   <Button
@@ -167,7 +168,6 @@ export default function NavigationOverlay({ navigation }) {
                         display="inline-flex"
                         alignItems="center"
                         gap={3}
-                        onClick={handleClick}
                         sx={{
                           ".is-animated-right": {
                             transition:
@@ -218,7 +218,6 @@ export default function NavigationOverlay({ navigation }) {
                         display="inline-flex"
                         alignItems="center"
                         gap={3}
-                        onClick={handleClick}
                         sx={{
                           ".is-animated-right": {
                             transition:
@@ -267,7 +266,6 @@ export default function NavigationOverlay({ navigation }) {
                               variant="defaultLink"
                               colorScheme="blue"
                               size="lg-variable"
-                              onClick={handleClick}
                               rightIcon={
                                 <ArrowRightIcon
                                   size="1.5rem"
@@ -286,7 +284,6 @@ export default function NavigationOverlay({ navigation }) {
                             variant="defaultLink"
                             colorScheme="blue"
                             size="lg-variable"
-                            onClick={handleClick}
                             rightIcon={
                               <ArrowRightIcon
                                 size="1.5rem"
@@ -320,7 +317,6 @@ export default function NavigationOverlay({ navigation }) {
                               variant="defaultLink"
                               colorScheme="blue"
                               size="lg-variable"
-                              onClick={handleClick}
                               rightIcon={
                                 <ArrowRightIcon
                                   size="1.5rem"
@@ -339,7 +335,6 @@ export default function NavigationOverlay({ navigation }) {
                             variant="defaultLink"
                             colorScheme="blue"
                             size="lg-variable"
-                            onClick={handleClick}
                             rightIcon={
                               <ArrowRightIcon
                                 size="1.5rem"
@@ -373,7 +368,6 @@ export default function NavigationOverlay({ navigation }) {
                               variant="defaultLink"
                               colorScheme="blue"
                               size="lg-variable"
-                              onClick={handleClick}
                               rightIcon={
                                 <ArrowRightIcon
                                   size="1.5rem"
@@ -392,7 +386,6 @@ export default function NavigationOverlay({ navigation }) {
                             variant="defaultLink"
                             colorScheme="blue"
                             size="lg-variable"
-                            onClick={handleClick}
                             rightIcon={
                               <ArrowRightIcon
                                 size="1.5rem"
@@ -443,7 +436,6 @@ export default function NavigationOverlay({ navigation }) {
                               variant="defaultLink"
                               colorScheme="blue"
                               size="lg-variable"
-                              onClick={handleClick}
                               rightIcon={
                                 <ArrowRightIcon
                                   size="1.5rem"
@@ -473,7 +465,6 @@ export default function NavigationOverlay({ navigation }) {
                                 colorScheme="blue"
                                 size="lg"
                                 px={0}
-                                onClick={handleClick}
                                 justifyContent="center"
                               >
                                 <TwitterIcon size="1.5rem" strokeWidth={2} />
@@ -484,7 +475,6 @@ export default function NavigationOverlay({ navigation }) {
                                 colorScheme="blue"
                                 size="lg"
                                 px={0}
-                                onClick={handleClick}
                                 justifyContent="center"
                               >
                                 <LinkedinIcon size="1.5rem" strokeWidth={2} />
@@ -495,7 +485,6 @@ export default function NavigationOverlay({ navigation }) {
                                 colorScheme="blue"
                                 size="lg"
                                 px={0}
-                                onClick={handleClick}
                                 justifyContent="center"
                               >
                                 <InstagramIcon size="1.5rem" strokeWidth={2} />
