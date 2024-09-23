@@ -38,7 +38,7 @@ import PillarCard from "@/components/PillarCard"
 import { ButtonLink } from "@/components/Link"
 import { ActionsByPillar } from "@/components/ActionsDiagram"
 
-export default function PillarPage({ source, otherPillars, sectors }) {
+export default function PillarPage({ source, otherPillars, sectors, counts }) {
   const { frontmatter } = source
   const PillarIcon = pillarIcons[`Pillar${frontmatter.key}Icon`] || Pillar1Icon
   return (
@@ -103,34 +103,34 @@ export default function PillarPage({ source, otherPillars, sectors }) {
         <Container>
           <SimpleGrid columns={8} spacing={6} px={5}>
             <SimpleGrid
-              columns={[1, null, 3]}
+              columns={[1, null, 2]}
               spacing={6}
               gridColumn={["1 / -1", null, null, null, "2 / -2"]}
             >
-              <Box p={5} borderBottomWidth="0.25rem" borderBottomColor="black">
+              <Box py={5} borderBottomWidth="0.25rem" borderBottomColor="black">
                 <Text fontSize="5xl" fontWeight={700} color="blue.500">
-                  {"7"}
+                  {counts.actions}
+                </Text>
+                <Text fontSize="xl" lineHeight="short" fontWeight={600}>
+                  {"Pathfinders actions"}
+                </Text>
+              </Box>
+              <Box py={5} borderBottomWidth="0.25rem" borderBottomColor="black">
+                <Text fontSize="5xl" fontWeight={700} color="blue.500">
+                  {counts.bestPractices}
                 </Text>
                 <Text fontSize="xl" lineHeight="short" fontWeight={600}>
                   {"Best practices"}
                 </Text>
               </Box>
-              <Box p={5} borderBottomWidth="0.25rem" borderBottomColor="black">
+              {/* <Box p={5} borderBottomWidth="0.25rem" borderBottomColor="black">
                 <Text fontSize="5xl" fontWeight={700} color="blue.500">
                   {"12"}
                 </Text>
                 <Text fontSize="xl" lineHeight="short" fontWeight={600}>
                   {"Regions covered"}
                 </Text>
-              </Box>
-              <Box p={5} borderBottomWidth="0.25rem" borderBottomColor="black">
-                <Text fontSize="5xl" fontWeight={700} color="blue.500">
-                  {"9"}
-                </Text>
-                <Text fontSize="xl" lineHeight="short" fontWeight={600}>
-                  {"Pathfinders solutions"}
-                </Text>
-              </Box>
+              </Box> */}
             </SimpleGrid>
           </SimpleGrid>
         </Container>
@@ -268,7 +268,33 @@ export async function getStaticProps({ params }) {
   const otherPillars = pillars.filter(
     (d) => d.frontmatter.title !== source.frontmatter.title
   )
-  return { props: { source, navigation, otherPillars, sectors } }
+  const actions = await getPages({
+    pageType: "actions",
+    fields: ["frontmatter"],
+  })
+  const bestPractices = await getPages({
+    pageType: "best-practices",
+    fields: ["frontmatter"],
+  })
+
+  return {
+    props: {
+      source,
+      navigation,
+      otherPillars,
+      sectors,
+      counts: {
+        actions: actions.filter((d) => {
+          return parseInt(`${d.frontmatter.id}`[0]) === source.frontmatter.key
+        }).length,
+        bestPractices: bestPractices.filter((d) => {
+          return d.frontmatter.actions
+            .map((dd) => parseInt(`${dd}`[0]))
+            .includes(source.frontmatter.key)
+        }).length,
+      },
+    },
+  }
 }
 
 export async function getStaticPaths() {
