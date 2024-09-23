@@ -65,6 +65,7 @@ export function getDistribution(
       circleFill: circleFillScale(d[sumField]),
       textFill: "#FFF",
       name: d.name,
+      full_name: d.full_name,
       region: d.region || "",
       // value: d.total,
       value: d[sumField],

@@ -142,6 +142,23 @@ export default function HistoricalEmissionsSection() {
                 }}
               />
             </motion.g>
+            <motion.text
+              x={xScale(timeseries?.slice(-1)[0].year)}
+              y={yScale(timeseries?.slice(-1)[0].value) - 16}
+              textAnchor="end"
+              fontWeight={600}
+              animate={{ opacity: inView ? 1 : 0 }}
+              transition={{
+                duration: 1.5,
+                delay: inView ? 1 : 0,
+                bounce: 0,
+                type: "spring",
+              }}
+            >
+              {Math.round(timeseries?.slice(-1)[0].value).toLocaleString(
+                "en-US"
+              ) + " MtCO2e"}
+            </motion.text>
           </svg>
         </Box>
         <Stack

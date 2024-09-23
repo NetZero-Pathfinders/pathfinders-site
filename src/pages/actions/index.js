@@ -50,7 +50,7 @@ const content = {
 export default function ActionsPage({ actions }) {
   return (
     <>
-      <SEO title="NetZero solutions" />
+      <SEO title="NetZero actions" />
       <Stack spacing={16} pb={24}>
         <PageHeader bg="white" color="black">
           <PageHeaderSubnavigation borderTopColor="gray.200">

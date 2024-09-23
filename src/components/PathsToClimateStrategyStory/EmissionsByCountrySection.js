@@ -16,6 +16,7 @@ import { useInView } from "react-intersection-observer"
 import { AnimatePresence, motion } from "framer-motion"
 import _sortBy from "lodash/sortBy"
 import _sumBy from "lodash/sumBy"
+import { Text as SVGText } from "@visx/text"
 
 import fetchDataset from "@/utils/api/client/fetchDataset"
 import { ArrowLeftIcon, ArrowRightIcon } from "@/components/Icon"
@@ -162,6 +163,7 @@ export default function EmissionsByCountrySection() {
                         }}
                       >
                         {nodes.map((node, i) => {
+                          console.log(node)
                           return (
                             <motion.g
                               key={`${node.name}`}
@@ -192,7 +194,7 @@ export default function EmissionsByCountrySection() {
                                 }}
                                 fill={node.circleFill}
                               />
-                              {node.showLabel ? (
+                              {/* {node.showLabel ? (
                                 <text
                                   textAnchor="middle"
                                   alignmentBaseline="central"
@@ -200,8 +202,21 @@ export default function EmissionsByCountrySection() {
                                   fontSize={16}
                                   fontWeight={600}
                                 >
-                                  {node.name}
+                                  {node.full_name}
                                 </text>
+                              ) : null} */}
+                              {node.showLabel ? (
+                                <SVGText
+                                  textAnchor="middle"
+                                  alignmentBaseline="central"
+                                  fill={node.textFill}
+                                  fontSize={node.r < 50 ? 12 : 16}
+                                  fontWeight={600}
+                                  verticalAnchor="middle"
+                                  width={node.r * 2 - 8}
+                                >
+                                  {node.full_name}
+                                </SVGText>
                               ) : null}
                             </motion.g>
                           )

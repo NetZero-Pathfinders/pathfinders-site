@@ -70,11 +70,9 @@ export default function ActionPage({
   const pillarKey = parseInt(actionId[0])
   const relevantPillar = pillars.find((s) => s.key === pillarKey)
 
-  console.log(nextAction)
-
   return (
     <>
-      <SEO title="Solutions" />
+      <SEO title={frontmatter.title} />
       <Stack as="main" spacing={12} pb={24}>
         <PageHeader bg="white" color="black" pb={6}>
           <PageHeaderSubnavigation borderTopColor="gray.200">
