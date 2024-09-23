@@ -2,7 +2,7 @@ import { useRouter } from "next/router"
 
 import { ButtonLink } from "@/components/Link"
 
-const siteUrl = "https://pathfinders.org/"
+const siteUrl = "https://www.netzeropathfinders.com/"
 
 const ShareButton = ({
   children,
@@ -52,10 +52,10 @@ function getShareLinks(asPath) {
 
   const shareUrl = getShareUrl(siteUrl, asPath)
 
-  const twitterShareText = `Share text`
-  const facebookShareText = `Share text: ${shareUrl}`
+  const twitterShareText = `A collection of best practices that illustrate effective policies to help solve critical climate challenges curated by @BloombergNEF`
+  const facebookShareText = `${shareUrl}`
   const emailSubject = `NetZero Pathfinders`
-  const emailBody = `Email body text: ${shareUrl}`
+  const emailBody = `${shareUrl}`
 
   const encodedTwitterShareText = encodeURIComponent(twitterShareText)
   const encodedFacebookShareText = encodeURIComponent(facebookShareText)
