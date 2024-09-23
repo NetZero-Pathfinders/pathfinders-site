@@ -43,7 +43,7 @@ export default function ReportsPage({ reports }) {
             <PageHeaderSubtitle>{content.introduction}</PageHeaderSubtitle>
           </PageHeaderContent>
           <PageHeaderLinks>
-            {content.links.map(({ key, href, label }, i) => {
+            {content.links.map(({ key, href, label }) => {
               return (
                 <ButtonLink
                   key={key}
@@ -72,14 +72,15 @@ export default function ReportsPage({ reports }) {
         <Container>
           <Stack spacing={20} px={5}>
             {reports.map((report) => {
-              const { title, description, slug, cover } = report.frontmatter
+              const { title, description, slug, cover, url } =
+                report.frontmatter
               return (
                 <ReportCardLg
-                  key={report.slug}
+                  key={slug}
                   title={title}
                   description={description}
-                  href={report.slug}
                   cover={cover}
+                  downloadUrl={url}
                 />
               )
             })}
@@ -94,7 +95,7 @@ export async function getStaticProps() {
   const navigation = await getNavigation()
   const reports = await getPages({
     pageType: "reports",
-    fields: ["slug", "frontmatter"],
+    fields: ["frontmatter"],
   })
   return { props: { navigation, reports } }
 }

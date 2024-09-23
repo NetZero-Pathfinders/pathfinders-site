@@ -19,7 +19,7 @@ import { sectorIcons } from "@/components/Icon"
 import StakeholdersDiagram, {
   StakeholdersDiagramPillars,
   StakeholdersDiagramStakeholders,
-  StakeholdersDiagramSectors,
+  // StakeholdersDiagramSectors,
   GroupHeading,
 } from "@/components/StakeholdersDiagram"
 // import StoryVisual from "@components/PathsToClimateStrategyStory"
@@ -288,27 +288,21 @@ function FrameworkVisual({ pillars }) {
               stakeholders={[
                 {
                   key: 1,
-                  title: "Financials",
+                  title: "Companies",
                   description:
-                    "Replicating proven private investment models in more mature markets is fundamental to accelerate deployment of today’s net-zero technologies.",
+                    "The private sector can help unlock new low carbon markets. In addition to providing asset financing. The private sector can also communicate guidelines for factors that make projects more appealing to investors.",
                 },
                 {
                   key: 2,
-                  title: "Policy makers",
-                  description:
-                    "The scope of the climate crisis is forcing policymakers to take a multi-decadal view of the problem but policies are only as good as the frameworks that exist to implement and enforce them.",
-                },
-                {
-                  key: 3,
                   title: "Consumers",
                   description:
                     "Public acceptance and understanding of clean alternatives is fundamental to ensuring fast deployment of green technologies and solutions.",
                 },
                 {
-                  key: 4,
-                  title: "Companies",
+                  key: 3,
+                  title: "Financials",
                   description:
-                    "The private sector can help unlock new low carbon markets. In addition to providing asset financing. The private sector can also communicate guidelines for factors that make projects more appealing to investors.",
+                    "Replicating proven private investment models in more mature markets is fundamental to accelerate deployment of today’s net-zero technologies.",
                 },
               ]}
             />
@@ -332,15 +326,13 @@ function FrameworkVisual({ pillars }) {
                       {customSectors
                         // .filter((d) => d.name !== "Waste")
                         .filter((d) => d.name !== "Other")
-                        .map(
-                          ({ key, ...sector }) => (
-                              <SectorItem
-                                key={key}
-                                slide={currentSlide}
-                                {...sector}
-                              />
-                            )
-                        )}
+                        .map(({ key, ...sector }) => (
+                          <SectorItem
+                            key={key}
+                            slide={currentSlide}
+                            {...sector}
+                          />
+                        ))}
                     </AnimatePresence>
                   </SimpleGrid>
                 </motion.div>

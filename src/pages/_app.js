@@ -37,7 +37,7 @@ export default function App({ Component, pageProps }) {
       <Box bg="white" minH="100vh">
         <Component {...pageProps} />
       </Box>
-      <SiteFooter navigation={pageProps?.navigation || {}} />
+      <SiteFooter />
     </ChakraProvider>
   )
 }

@@ -252,13 +252,13 @@ export default function IndexPage({
         <SectionBody>
           <SimpleGrid columns={[1, null, 2, 3]} spacing={[6, null, null, 12]}>
             {reports.map((report) => {
-              const { title, description, cover, url } = report.frontmatter
+              const { title, description, cover, slug, url } =
+                report.frontmatter
               return (
                 <ReportCardSm
-                  key={report.slug}
+                  key={slug}
                   title={title}
                   description={description}
-                  href={report.slug}
                   cover={cover}
                   downloadUrl={url}
                 />
@@ -271,44 +271,28 @@ export default function IndexPage({
   )
 }
 
-// export async function getStaticProps() {
-//   const navigation = await getNavigation()
-//   return {
-//     props: {
-//       navigation,
-//       pillars: [],
-//       sectors: [],
-//       bestPractices: [],
-//       bestPracticeCount: 0,
-//       reports: [],
-//     },
-//   }
-// }
-
 export async function getStaticProps() {
   const navigation = await getNavigation()
 
   const sectorsRaw = await getPages({ pageType: "sectors" })
   const bestPracticesRaw = await getPages({ pageType: "best-practices" })
   const bestPractices = bestPracticesRaw
-    .map((d) => ({ ...d.frontmatter, slug: d.slug }))
+    .map((d) => d.frontmatter)
     .filter((d) => d.published)
   const sectors = _sortBy(
-    sectorsRaw
-      .filter((d) => d.frontmatter.type === "sector")
-      .map((d) => ({ ...d.frontmatter, slug: d.slug })),
+    sectorsRaw.map((d) => d.frontmatter),
     (o) => o.key
   )
   const bestPracticeCount = bestPractices.length
 
   const pillarsRaw = await getPages({ pageType: "pillars" })
   const pillars = _sortBy(
-    pillarsRaw.map((d) => ({ ...d.frontmatter, slug: d.slug })),
+    pillarsRaw.map((d) => d.frontmatter),
     (o) => o.key
   )
   const reports = await getPages({
     pageType: "reports",
-    fields: ["slug", "frontmatter"],
+    fields: ["frontmatter"],
   })
 
   const latestReports = _sortBy(
