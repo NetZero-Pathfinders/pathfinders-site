@@ -34,7 +34,7 @@ import {
   SectionHeader,
   SectionHeaderContent,
   SectionHeaderTitle,
-  SectionHeaderSubtitle,
+  // SectionHeaderSubtitle,
   SectionHeaderLinks,
 } from "@/components/SectionHeader"
 
@@ -49,8 +49,8 @@ import MethodologyReportBanner from "@/components/MethodologyReportBanner"
 export default function SectorStakeholderPage({
   source,
   sectors,
-  actionCount,
   bestPractices,
+  counts,
 }) {
   const { frontmatter } = source
   const sectorName = frontmatter?.title?.toLowerCase().split(" ").join("-")
@@ -111,34 +111,34 @@ export default function SectorStakeholderPage({
         <Container>
           <SimpleGrid columns={8} spacing={6} px={5}>
             <SimpleGrid
-              columns={[1, null, 3]}
+              columns={[1, null, 2]}
               spacing={6}
               gridColumn={["1 / -1", null, null, null, "2 / -2"]}
             >
-              <Box p={5} borderBottomWidth="0.25rem" borderBottomColor="black">
+              <Box py={5} borderBottomWidth="0.25rem" borderBottomColor="black">
                 <Text fontSize="5xl" fontWeight={700} color="blue.500">
-                  {"7"}
+                  {counts.actions}
+                </Text>
+                <Text fontSize="xl" lineHeight="short" fontWeight={600}>
+                  {"Pathfinders actions"}
+                </Text>
+              </Box>
+              <Box py={5} borderBottomWidth="0.25rem" borderBottomColor="black">
+                <Text fontSize="5xl" fontWeight={700} color="blue.500">
+                  {counts.bestPractices}
                 </Text>
                 <Text fontSize="xl" lineHeight="short" fontWeight={600}>
                   {"Best practices"}
                 </Text>
               </Box>
-              <Box p={5} borderBottomWidth="0.25rem" borderBottomColor="black">
+              {/* <Box p={5} borderBottomWidth="0.25rem" borderBottomColor="black">
                 <Text fontSize="5xl" fontWeight={700} color="blue.500">
                   {"12"}
                 </Text>
                 <Text fontSize="xl" lineHeight="short" fontWeight={600}>
                   {"Regions covered"}
                 </Text>
-              </Box>
-              <Box p={5} borderBottomWidth="0.25rem" borderBottomColor="black">
-                <Text fontSize="5xl" fontWeight={700} color="blue.500">
-                  {actionCount}
-                </Text>
-                <Text fontSize="xl" lineHeight="short" fontWeight={600}>
-                  {"Pathfinders actions"}
-                </Text>
-              </Box>
+              </Box> */}
             </SimpleGrid>
           </SimpleGrid>
         </Container>
@@ -246,7 +246,16 @@ export async function getStaticProps({ params }) {
   const bestPractices = await getPages({
     pageType: "best-practices",
     fields: ["frontmatter", "slug"],
-  }).then((d) => d.slice(0, 4).map((d) => ({ slug: d.slug, ...d.frontmatter })))
+  })
+
+  const relevantBestPractices = bestPractices.filter((d) =>
+    d.frontmatter.sectors.includes(source.frontmatter.title)
+  )
+
+  const counts = {
+    actions: relevantActions.length,
+    bestPractices: relevantBestPractices.length,
+  }
 
   return {
     props: {
@@ -256,8 +265,10 @@ export async function getStaticProps({ params }) {
         sectors.filter((d) => d.frontmatter.title !== source.frontmatter.title)
       ),
       actions: relevantActions,
-      actionCount: relevantActions.length,
-      bestPractices,
+      bestPractices: relevantBestPractices
+        .slice(0, 4)
+        .map((d) => ({ slug: d.slug, ...d.frontmatter })),
+      counts,
     },
   }
 }

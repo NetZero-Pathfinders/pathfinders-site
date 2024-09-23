@@ -6,7 +6,7 @@ import GroupHeading from "@/components/StakeholdersDiagram/GroupHeading"
 
 export default function StakeholdersDiagramStakeholders({ stakeholders }) {
   return (
-    <SimpleGrid columns={4} spacingX={2} spacingY={5}>
+    <SimpleGrid columns={3} spacingX={2} spacingY={5}>
       <Box gridColumn="1 / -1" textAlign="center">
         <GroupHeading>{"Stakeholders"}</GroupHeading>
       </Box>
