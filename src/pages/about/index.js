@@ -1,4 +1,14 @@
-import { Stack, Box } from "@chakra-ui/react"
+import {
+  Stack,
+  Box,
+  Container,
+  Divider,
+  Heading,
+  List,
+  UnorderedList,
+  ListItem,
+  Text,
+} from "@chakra-ui/react"
 
 import getNavigation from "@/utils/api/server/getNavigation"
 import getPages from "@/utils/api/server/getPages"
@@ -13,12 +23,14 @@ import {
   PageHeaderTitle,
   PageHeaderSubtitle,
 } from "@/components/PageHeader"
+import { Link } from "@/components/Link"
+import MethodologyReportBanner from "@/components/MethodologyReportBanner"
 
 const content = {
   backButton: { label: "Home", href: "/" },
   title: "About",
   introduction:
-    "NetZero Pathfinders is a public resource that provides concrete, actionable policy ideas for achieving a decarbonized economy. Pathfinders leverages the capabilities of Bloomberg L.P., Bloomberg Philanthropies and numerous partner organizations to make these policy solutions available via this web portal. The initiative aims to serve municipal, regional, national and international policy makers, financiers, business leaders and others.",
+    "NetZero Pathfinders is a public resource that simplifies the search for policymakers to find, design and implement decarbonization strategies. It showcases the most effective policy solutions, known as best practices, that can be replicated in new markets to accelerate progress to net zero. Pathfinders’ best practices are powered by the expertise of hundreds of BNEF analysts, using metrics, to identify the most impactful climate solutions. By showing what really works, Pathfinders builds a community of decisionmakers to drive the implementation of solutions and mitigate climate change.",
   links: [
     { key: 1, label: "NetZero pillars", href: "/" },
     { key: 2, label: "Emitting sectors", href: "/" },
@@ -54,11 +66,35 @@ export default function NewsletterPage() {
             <DotGrid xTiles={3} yTiles={2} />
           </Box>
         </PageHeader>
-        {/* <Container>
-          <Box px={5}>
-            <Divider />
-          </Box>
-        </Container> */}
+        {/* <Divider /> */}
+        <Container>
+          <Stack px={5} spacing={5}>
+            <Heading as="h2" variant="sectionHeading">
+              {"NetZero Pathfinder team:"}
+            </Heading>
+            <UnorderedList styleType="none" mx={0}>
+              <ListItem>
+                <Text variant="body">{"Brynne Mary Merkley"}</Text>
+              </ListItem>
+              <ListItem>
+                <Text variant="body">{"Emma Champion"}</Text>
+              </ListItem>
+              <ListItem>
+                <Text variant="body">{"Victoria Cuming"}</Text>
+              </ListItem>
+              <ListItem>
+                <Text variant="body">{"Luiza Demoro"}</Text>
+              </ListItem>
+            </UnorderedList>
+            <Text variant="body">
+              {"Please get in touch with us at "}
+              <Link href="mailto:pathfinders@bloomberg.net" variant="text">
+                {"pathfinders@bloomberg.net"}
+              </Link>
+            </Text>
+          </Stack>
+        </Container>
+        <MethodologyReportBanner />
       </Stack>
     </>
   )
