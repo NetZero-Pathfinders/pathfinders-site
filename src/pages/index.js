@@ -85,7 +85,7 @@ export default function IndexPage({
           {`A curated collection of ${Math.min(
             100,
             bestPracticeCount
-          )} best practices that illustrate effective policies to help solve critical climate challenges`}
+          )} est practices that illustrate effective policies to help solve critical climate challenges`}
         </HomeBannerSubtitle>
       </HomeBanner>
 
