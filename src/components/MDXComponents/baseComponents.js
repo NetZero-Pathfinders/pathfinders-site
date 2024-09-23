@@ -1,4 +1,4 @@
-import { Heading, Text } from "@chakra-ui/react"
+import { Heading, Text, Box } from "@chakra-ui/react"
 
 export default {
   h1: (props) => (
@@ -85,6 +85,25 @@ export default {
         pb={5}
         {...props}
       />
+    )
+  },
+  img: (props) => {
+    return (
+      <Box
+        as="span"
+        sx={{
+          img: {
+            width: "100%",
+            height: "auto",
+            "@supports (object-fit: contain)": {
+              maxH: "30rem",
+              objectFit: "contain",
+            },
+          },
+        }}
+      >
+        <img {...props} />
+      </Box>
     )
   },
 }

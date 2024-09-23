@@ -143,8 +143,8 @@ export default function HistoricalEmissionsSection() {
               />
             </motion.g>
             <motion.text
-              x={xScale(timeseries?.slice(-1)[0].year)}
-              y={yScale(timeseries?.slice(-1)[0].value) - 16}
+              x={xScale(timeseries?.slice(-1)[0].year) || 0}
+              y={(yScale(timeseries?.slice(-1)[0].value) || 0) - 16}
               textAnchor="end"
               fontWeight={600}
               animate={{ opacity: inView ? 1 : 0 }}
