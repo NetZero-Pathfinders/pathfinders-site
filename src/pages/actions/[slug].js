@@ -1,9 +1,9 @@
 import {
-  Box,
-  Heading,
-  Text,
+  // Box,
+  // Heading,
+  // Text,
   Stack,
-  HStack,
+  // HStack,
   Container,
   Divider,
   SimpleGrid,
@@ -18,8 +18,12 @@ import getPages from "@/utils/api/server/getPages"
 import getPage from "@/utils/api/server/getPage"
 
 import SEO from "@/components/SEO"
-import { ArrowRightIcon } from "@/components/Icon"
-import { ButtonLink, Link } from "@/components/Link"
+// import { ArrowRightIcon } from "@/components/Icon"
+import {
+  // ButtonLink,
+  Link,
+} from "@/components/Link"
+// import PageDivider from "@/components/PageDivider"
 import pillarComponents from "@/components/MDXComponents/pillarComponents"
 
 import {
@@ -37,9 +41,10 @@ import {
   SectionHeaderContent,
   SectionHeaderTitle,
   // SectionHeaderSubtitle,
-  SectionHeaderLinks,
+  // SectionHeaderLinks,
 } from "@/components/SectionHeader"
-import { BestPracticeListingItem } from "@/components/BestPracticeListing"
+import ActionsListing from "@/components/ActionsListing"
+// import { BestPracticeListingItem } from "@/components/BestPracticeListing"
 
 const content = {
   backButton: { label: "All actions", href: "/actions" },
@@ -54,6 +59,7 @@ export default function ActionPage({
   sectors,
   pillars,
   bestPractices,
+  nextAction,
 }) {
   const { frontmatter } = source
 
@@ -63,6 +69,8 @@ export default function ActionPage({
   const actionId = `${frontmatter.id}`
   const pillarKey = parseInt(actionId[0])
   const relevantPillar = pillars.find((s) => s.key === pillarKey)
+
+  console.log(nextAction)
 
   return (
     <>
@@ -191,19 +199,15 @@ export default function ActionPage({
 
         <Container>
           <Stack spacing={12} px={5}>
-            {/* <Divider variant="thick" /> */}
             <SimpleGrid columns={8} spacing={3}>
               <MDXRemote {...source} components={pillarComponents} />
             </SimpleGrid>
-            <Divider />
+            {/* <Divider />
             <SectionHeader>
               <SectionHeaderContent>
                 <SectionHeaderTitle>
                   {"Related best practices"}
                 </SectionHeaderTitle>
-                {/* <SectionHeaderSubtitle>
-                  {`Explore all best practices related to "${frontmatter.title}".`}
-                </SectionHeaderSubtitle> */}
               </SectionHeaderContent>
               <SectionHeaderLinks>
                 <ButtonLink
@@ -234,7 +238,16 @@ export default function ActionPage({
                   )
                 })}
               </Stack>
-            )}
+            )} */}
+            <Divider />
+            <SectionHeader>
+              <SectionHeaderContent>
+                <SectionHeaderTitle>{"Read next"}</SectionHeaderTitle>
+              </SectionHeaderContent>
+            </SectionHeader>
+            <ActionsListing
+              actions={[{ ...nextAction.frontmatter, slug: nextAction.slug }]}
+            />
           </Stack>
         </Container>
       </Stack>
@@ -246,6 +259,17 @@ export async function getStaticProps({ params }) {
   const navigation = await getNavigation()
   const slug = params.slug || ""
   const source = await getPage({ slug, pageType: "actions" })
+
+  const actions = await getPages({
+    pageType: "actions",
+    fields: ["frontmatter", "slug"],
+  })
+
+  const nextAction = actions.reduce((acc, cur, i) => {
+    if (cur.frontmatter.id === source.frontmatter.id)
+      return actions[i + 1] || actions[0]
+    else return acc
+  }, {})
 
   const pillars = await getPages({
     pageType: "pillars",
@@ -280,6 +304,7 @@ export async function getStaticProps({ params }) {
       pillars: pillars.map((d) => ({ slug: d.slug, ...d.frontmatter })),
       sectors: relevantSectors,
       bestPractices: relevantBestPractices,
+      nextAction,
     },
   }
 }
