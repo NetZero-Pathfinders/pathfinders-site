@@ -194,11 +194,11 @@ export async function getStaticProps() {
   const navigation = await getNavigation()
   const data = await getPages({
     pageType: "sectors",
-    fields: ["slug", "frontmatter"],
+    fields: ["frontmatter"],
   })
   const sectors = _sortBy(
     data.filter((dd) => dd.frontmatter.type === "sector"),
     (o) => o.frontmatter.key
-  ).map((d) => ({ ...d.frontmatter, slug: d.slug }))
+  ).map((d) => d.frontmatter)
   return { props: { sectors, navigation } }
 }

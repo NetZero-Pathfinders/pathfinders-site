@@ -267,7 +267,7 @@ export async function getStaticProps({ params }) {
       actions: relevantActions,
       bestPractices: relevantBestPractices
         .slice(0, 4)
-        .map((d) => ({ slug: d.slug, ...d.frontmatter })),
+        .map((d) => d.frontmatter),
       counts,
     },
   }

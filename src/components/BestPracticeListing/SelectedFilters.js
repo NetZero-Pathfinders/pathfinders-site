@@ -27,7 +27,7 @@ export default function SelectedFilters() {
   }
 
   return (
-    <HStack gap={6} borderBottom="0.0625rem solid" borderColor="gray.200">
+    <HStack gap={6} borderBottom="0.0625rem solid" borderColor="gray.200" h={16}>
       <Box flex={1} position="relative" h={16}>
         <HStack gap={3} h={16} position="absolute" top={0} left={0} right={0}>
           {searchTerms.map((searchTerm) => {
@@ -45,7 +45,7 @@ export default function SelectedFilters() {
                   whiteSpace="nowrap"
                   overflow="hidden"
                   textOverflow="ellipsis"
-                  fontWeight={500}
+                  fontWeight={600}
                 >
                   {searchTerm}
                 </Box>

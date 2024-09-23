@@ -25,7 +25,7 @@ export default async function getPage({
     ...serialized.frontmatter,
     related: relevantPage.frontmatter?.related || [],
     tags: relevantPage.frontmatter?.tags || [],
-    tags: relevantPage.frontmatter?.type || "",
+    type: relevantPage.frontmatter?.type || "",
     slug: relevantPage.slug || "",
   }
 

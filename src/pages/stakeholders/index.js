@@ -31,8 +31,7 @@ import {
 const content = {
   backButton: { label: "Home", href: "/" },
   title: "Key stakeholders",
-  introduction:
-    "",
+  introduction: "",
   links: [{ key: 1, label: "Emitting sectors", href: "/sectors" }],
 }
 
@@ -143,20 +142,16 @@ export async function getStaticProps() {
   const navigation = await getNavigation()
   const stakeholdersRaw = await getPages({
     pageType: "stakeholders",
-    fields: ["slug", "frontmatter"],
+    fields: ["frontmatter"],
   })
   const sectorsRaw = await getPages({
     pageType: "sectors",
-    fields: ["slug", "frontmatter"],
+    fields: ["frontmatter"],
   })
   const pillars = await getPages({ pageType: "pillars" })
-  const sectors = _sortBy(sectorsRaw, (o) => o.frontmatter.key).map((d) => ({
-    ...d.frontmatter,
-    slug: d.slug,
-  }))
-  const stakeholders = stakeholdersRaw.map((d) => ({
-    ...d.frontmatter,
-    slug: d.slug,
-  }))
+  const sectors = _sortBy(sectorsRaw, (o) => o.frontmatter.key).map(
+    (d) => d.frontmatter
+  )
+  const stakeholders = stakeholdersRaw.map((d) => d.frontmatter)
   return { props: { stakeholders, sectors, pillars, navigation } }
 }
