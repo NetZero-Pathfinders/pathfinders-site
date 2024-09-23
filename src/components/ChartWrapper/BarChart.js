@@ -1,6 +1,6 @@
-import { useMemo, useState } from "react"
+import { useMemo, useState, useRef } from "react"
 import { scaleLinear, scaleBand } from "d3-scale"
-import { useElementSize } from "usehooks-ts"
+import { useResizeObserver } from "usehooks-ts"
 import { Text as SVGText } from "@visx/text"
 
 import { useChartStore } from "./store"
@@ -57,7 +57,12 @@ export default function BarChart({ orientation, chartPadding = {} }) {
     ...chartPadding,
   }
 
-  const [containerRef, { width }] = useElementSize()
+  const containerRef = useRef(null)
+
+  const { width = 0 } = useResizeObserver({
+    ref: containerRef,
+    box: "border-box",
+  })
 
   const barWidth = (width - padding.left - padding.right) / data.length
 

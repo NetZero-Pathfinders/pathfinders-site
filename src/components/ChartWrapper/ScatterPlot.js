@@ -1,7 +1,7 @@
-import { useMemo } from "react"
+import { useMemo, useRef } from "react"
 import { scaleLinear } from "d3-scale"
 import { voronoi as d3voronoi } from "d3-voronoi"
-import { useElementSize } from "usehooks-ts"
+import { useResizeObserver } from "usehooks-ts"
 // import { Text as SVGText } from "@visx/text"
 import _uniq from "lodash/uniqBy"
 // import dayjs from "dayjs"
@@ -22,7 +22,12 @@ export default function ScatterPlot({ orientation, chartPadding }) {
     ...chartPadding,
   }
 
-  const [containerRef, { width }] = useElementSize()
+  const containerRef = useRef(null)
+  const { width = 0 } = useResizeObserver({
+    ref: containerRef,
+    box: "border-box",
+  })
+
   const height = (width * 9) / 16
 
   const xDomain = domain.x
