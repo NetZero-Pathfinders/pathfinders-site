@@ -127,6 +127,18 @@ export const LinkedinIcon = ({ viewBox = "0 0 24 24", ...restProps }) => (
   </Icon>
 )
 
+export const FacebookIcon = ({ viewBox = "0 0 24 24", ...restProps }) => (
+  <Icon viewBox={viewBox} {...restProps} fill="currentcolor" stroke="none">
+    <path d="M22.5 0c.83 0 1.5.67 1.5 1.5v21c0 .83-.67 1.5-1.5 1.5h-6v-9h3l.75-3.75H16.5v-1.5c0-1.5.75-2.25 2.25-2.25h1.5V3.75h-3c-2.76 0-4.5 2.16-4.5 5.25v2.25h-3V15h3v9H1.5A1.5 1.5 0 010 22.5v-21C0 .67.67 0 1.5 0h21z" />
+  </Icon>
+)
+
+export const EmailIcon = ({ viewBox = "0 0 24 24", ...restProps }) => (
+  <Icon viewBox={viewBox} {...restProps} fill="none" stroke="currentcolor">
+    <path d="M16 8v5a3 3 0 006 0v-1a10 10 0 10-3.92 7.94M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+  </Icon>
+)
+
 export const FiltersIcon = ({ viewBox = "0 0 24 24", ...restProps }) => (
   <Icon viewBox={viewBox} {...restProps}>
     <path d="M4 21L4 14" />

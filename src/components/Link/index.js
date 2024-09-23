@@ -9,13 +9,13 @@ import NextLink from "next/link"
 
 export const LinkBox = ChakraLinkBox
 export const LinkOverlay = forwardRef((props, ref) => (
-  <ChakraLinkOverlay ref={ref} as={NextLink} scroll={false} {...props} />
+  <ChakraLinkOverlay ref={ref} as={NextLink} scroll={true} {...props} />
 ))
 
 export const Link = forwardRef((props, ref) => {
-  return <ChakraLink ref={ref} as={NextLink} scroll={false} {...props} />
+  return <ChakraLink ref={ref} as={NextLink} scroll={true} {...props} />
 })
 
 export const ButtonLink = forwardRef((props, ref) => {
-  return <Button ref={ref} as={NextLink} scroll={false} {...props} />
+  return <Button ref={ref} as={NextLink} scroll={true} {...props} />
 })
