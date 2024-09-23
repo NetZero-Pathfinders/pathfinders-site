@@ -93,10 +93,10 @@ export default function CombinedDiagram({
           gap={6}
           flexDirection={["column-reverse", null, null, "row"]}
           alignItems={["flex-start", null, null, "center"]}
-          justifyContent="space-between"
+          justifyContent="flex-end"
           minH={16}
         >
-          <Summary currentView={currentView} />
+          {/* <Summary currentView={currentView} /> */}
           <HStack
             spacing={4}
             flex="none"

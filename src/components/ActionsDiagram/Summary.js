@@ -26,7 +26,6 @@ export function Summary() {
   const actionCount = useSummaryStore((state) => state.actions)
   const category = useSummaryStore((state) => state.category)
   const words = useSummaryStore((state) => state.words)
-  return <Box />
   return (
     <Text fontSize="2xl" lineHeight="short" color="gray.500" maxW="40rem">
       <Text as="span" color="blue.500" fontWeight={600} lineHeight="short">
