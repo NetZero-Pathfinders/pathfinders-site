@@ -18,6 +18,7 @@ export default async function prepareSearchIndex() {
         id: i + 1,
         name: d.fileName || "",
         title: d.frontmatter?.title || "",
+        slug: d.slug || "",
         description: d.frontmatter?.description || "",
       }
     })
@@ -31,6 +32,7 @@ export default async function prepareSearchIndex() {
         id: i + 1,
         name: d.fileName || "",
         title: d.frontmatter?.title || "",
+        slug: d.slug || "",
         description: d.frontmatter?.description || "",
         content: d.content
           ?.split("---")

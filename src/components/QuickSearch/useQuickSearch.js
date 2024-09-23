@@ -93,33 +93,25 @@ export default function useQuickSearch({
         const correctedSearchIndex = [
           ...bestPracticesIndex.map((d) => ({
             label: d.title,
-            href: `/best-practices/${d.name.split(".")[0]}`,
+            href: d.slug,
             type: "best-practice",
             content: d.content || "",
           })),
           ...sectorsIndex.map((d) => ({
             label: d.title,
-            href: `/sectors/${d.title
-              .toLowerCase()
-              .trim()
-              .split(" ")
-              .join("-")}`,
+            href: d.slug,
             type: "sector",
             content: "",
           })),
           ...stakeholdersIndex.map((d) => ({
             label: d.title,
-            href: `/stakeholders/${d.title
-              .toLowerCase()
-              .trim()
-              .split(" ")
-              .join("-")}`,
+            href: d.slug,
             type: "stakeholder",
             content: "",
           })),
           ...pillarsIndex.map((d) => ({
             label: d.title,
-            href: `/pillars/pillar-${d.key}`,
+            href: d.slug,
             type: "pillar",
             content: "",
           })),
