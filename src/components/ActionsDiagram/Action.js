@@ -1,4 +1,4 @@
-import { HStack, Stack, Wrap, WrapItem, Box } from "@chakra-ui/layout"
+import { HStack, Stack, Wrap, WrapItem, Box } from "@chakra-ui/react"
 import _groupBy from "lodash/groupBy"
 import { motion } from "framer-motion"
 

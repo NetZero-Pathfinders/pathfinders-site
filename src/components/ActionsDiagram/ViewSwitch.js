@@ -1,4 +1,4 @@
-import { HStack } from "@chakra-ui/layout"
+import { HStack } from "@chakra-ui/react"
 import _groupBy from "lodash/groupBy"
 
 import { Tabs, TabList, Tab } from "@/components/Tabs"

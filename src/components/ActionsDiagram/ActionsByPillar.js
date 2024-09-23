@@ -1,7 +1,14 @@
 import { useState, useEffect, useMemo } from "react"
-import { useTheme } from "@chakra-ui/system"
-import { SimpleGrid, Text, HStack, Stack, Box, Center } from "@chakra-ui/layout"
-import { Button } from "@chakra-ui/button"
+import {
+  useTheme,
+  SimpleGrid,
+  Text,
+  HStack,
+  Stack,
+  Box,
+  Center,
+  Button,
+} from "@chakra-ui/react"
 import _groupBy from "lodash/groupBy"
 import { AnimatePresence, motion } from "framer-motion"
 

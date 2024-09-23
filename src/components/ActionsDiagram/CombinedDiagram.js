@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-import { Text, HStack, Stack, Flex, Box } from "@chakra-ui/layout"
+import { Text, HStack, Stack, Flex, Box } from "@chakra-ui/react"
 import _groupBy from "lodash/groupBy"
 import { AnimatePresence, motion } from "framer-motion"
 
