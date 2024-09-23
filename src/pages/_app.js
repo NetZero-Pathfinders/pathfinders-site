@@ -1,20 +1,3 @@
-// import { ChakraProvider } from "@chakra-ui/react"
-// import Script from "next/script"
-
-// import theme from "@/styles/theme"
-
-// export default function App({ Component, pageProps }) {
-//   return (
-//     <>
-//       <ChakraProvider theme={theme}>
-//         <Component {...pageProps} />
-//       </ChakraProvider>
-//       <Script src="https://scripts.simpleanalyticscdn.com/latest.js" />
-//     </>
-//   )
-// }
-
-// import { useEffect } from "react"
 import { ChakraProvider } from "@chakra-ui/react"
 // import { AnimatePresence, motion } from "framer-motion"
 // import { useRouter } from "next/router"
@@ -30,40 +13,7 @@ export default function App({ Component, pageProps }) {
   // const router = useRouter()
   // const pathname = router.asPath
 
-  // const onCloseNavigationOverlay = useNavigationOverlay(
-  //   (state) => state.onClose
-  // )
-  // const onCloseSearchOverlay = useSearchOverlay((state) => state.onClose)
-
   // const pathKey = pathname.split("?")[0].trim()
-
-  // const handleExitComplete = () => {
-  //   if (typeof window === "undefined") return
-  //   onCloseNavigationOverlay()
-  //   onCloseSearchOverlay()
-  //   window.scrollTo(0, 0)
-  // }
-
-  // useEffect(() => {
-  //   if (typeof window === "undefined") return undefined
-
-  //   const handleRouteChangeStart = (url) => {
-  //     if (url === window.location.pathname) {
-  //       onCloseNavigationOverlay()
-  //       onCloseSearchOverlay()
-  //     }
-  //   }
-
-  //   const handleRouteChangeComplete = () => {}
-
-  //   router.events.on("routeChangeStart", handleRouteChangeStart)
-  //   router.events.on("routeChangeComplete", handleRouteChangeComplete)
-
-  //   return () => {
-  //     router.events.off("routeChangeStart", handleRouteChangeStart)
-  //     router.events.off("routeChangeComplete", handleRouteChangeComplete)
-  //   }
-  // }, [])
 
   return (
     <ChakraProvider theme={theme} resetCSS>
