@@ -22,7 +22,7 @@ const content = {
   backButton: { label: "Home", href: "/" },
   title: "Reports",
   introduction:
-    "Explore our publications to learn more about the key decarbonization challenges facing policymakers today",
+    "Explore our publications to learn more about the key decarbonization challenges facing policymakers today.",
   links: [{ key: 1, label: "Sign up to the newsletter", href: "/newsletter" }],
 }
 
@@ -43,7 +43,7 @@ export default function ReportsPage({ reports }) {
             <PageHeaderSubtitle>{content.introduction}</PageHeaderSubtitle>
           </PageHeaderContent>
           <PageHeaderLinks>
-            {content.links.map(({ key, href, label }) => {
+            {/* {content.links.map(({ key, href, label }) => {
               return (
                 <ButtonLink
                   key={key}
@@ -61,7 +61,7 @@ export default function ReportsPage({ reports }) {
                   {label}
                 </ButtonLink>
               )
-            })}
+            })} */}
           </PageHeaderLinks>
         </PageHeader>
         <Container>

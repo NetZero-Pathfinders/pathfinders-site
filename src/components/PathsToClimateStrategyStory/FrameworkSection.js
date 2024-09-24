@@ -55,7 +55,7 @@ export default function FrameworkSection({ pillars, sectors }) {
               {"NetZero Pathfinders"}
             </Text>
           </Heading>
-          <Text fontSize="xl">
+          <Text fontSize="2xl">
             {
               "The magnitude of climate change can make it difficult to discern how best to address the problem. The good news is that effective solutions have been tested and proven already in cities, states and nations around the globe. Many of these are now ready to be implemented in other contexts and at far greater scale. This report breaks the climate challenge down into the four pillars of net-zero strategies and describes crucial solutions to address these challenges."
             }
@@ -81,7 +81,7 @@ export default function FrameworkSection({ pillars, sectors }) {
             }}
           >
             <Center h="100vh" position="relative">
-              <Text fontSize="xl" p={5} bg="whiteAlpha.900">
+              <Text fontSize="2xl" p={5} bg="whiteAlpha.900">
                 {
                   "The pillars of net-zero strategy are relevant for all major emitting sectors of the economy and key stakeholder groups in the race to zero. They encompass: 1. Accelerating deployment of mature climate solutions 2. Supporting the development of new climate solutions 3. Phasing out of carbon-intensive activities 4. Creating appropriate climate transition governance structures"
                 }
@@ -99,7 +99,7 @@ export default function FrameworkSection({ pillars, sectors }) {
             }}
           >
             <Center h="100vh" position="relative">
-              <Text fontSize="xl" p={5} bg="whiteAlpha.900">
+              <Text fontSize="2xl" p={5} bg="whiteAlpha.900">
                 {
                   "Without immediate action, the carbon budget for 1.5C warming above pre-industrial levels will rapidly be depleted. Identifying, replicating and scaling policy measures with demonstrated impact is thus critical. Pathfinders outlines actionable solutions that could accelerate progress by 2030, while also laying the foundation for decarbonizing harder-to-abate sectors in the years to come."
                 }
@@ -117,7 +117,7 @@ export default function FrameworkSection({ pillars, sectors }) {
             }}
           >
             <Center h="100vh" position="relative">
-              <Text fontSize="xl" p={5} bg="whiteAlpha.900">
+              <Text fontSize="2xl" p={5} bg="whiteAlpha.900">
                 {
                   "These actions target the financial institutions, consumers and companies that need to transition their activities, as well as the different levels of government that must lead the way."
                 }
@@ -135,7 +135,7 @@ export default function FrameworkSection({ pillars, sectors }) {
             }}
           >
             <Center h="50vh" position="relative">
-              <Text fontSize="xl" py={5} bg="whiteAlpha.900">
+              <Text fontSize="2xl" py={5} bg="whiteAlpha.900">
                 {""}
               </Text>
             </Center>

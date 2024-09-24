@@ -106,7 +106,7 @@ export default function SectorsCarousel({ sectors }) {
                 <SectorCardHeading as="h2" fontSize={["3xl", null, "5xl"]}>
                   {currentSector.title}
                 </SectorCardHeading>
-                <Text fontSize={["xl", null, "2xl"]} color="gray.500">
+                <Text fontSize={["xl", null, "2xl"]}>
                   {currentSector.description}
                 </Text>
                 <HStack spacing={3} className="continue-reading">

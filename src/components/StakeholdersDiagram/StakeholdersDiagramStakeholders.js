@@ -27,7 +27,7 @@ export default function StakeholdersDiagramStakeholders({ stakeholders }) {
                 </Text>
               </Stack>
               <Divider borderBottomWidth="0.25rem" borderColor="black" />
-              <Text px={5} lineHeight="short" fontSize="md">
+              <Text px={5} lineHeight="short" fontSize="md" fontWeight={600}>
                 {stakeholder.description}
               </Text>
             </Stack>

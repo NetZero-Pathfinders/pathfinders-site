@@ -66,9 +66,9 @@ export default function PathsToClimateStrategiesPage({ pillars, sectors }) {
                   {"NetZero"}
                 </Text>
               </Heading>
-              <Text fontSize="2xl" color="gray.500">
+              <Text fontSize="3xl" fontWeight={600}>
                 {
-                  "Ramping up the deployment of clean technologies and phasing out carbon-intensive activities relies on well-designed, effective government support."
+                  "Ramping up the deployment of clean technologies and phasing out carbon-intensive activities relies on well-designed, effective government support. Pathfinders serves as a basic resource for policymakers and other key stakeholders designing decarbonization strategies."
                 }
               </Text>
             </Stack>
@@ -84,7 +84,7 @@ export default function PathsToClimateStrategiesPage({ pillars, sectors }) {
         </PageHeader>
 
         <Stack spacing={20}>
-          <Container>
+          {/* <Container>
             <SimpleGrid px={5} columns={8} spacing={6}>
               <Stack
                 spacing={6}
@@ -100,7 +100,7 @@ export default function PathsToClimateStrategiesPage({ pillars, sectors }) {
                 </Text>
               </Stack>
             </SimpleGrid>
-          </Container>
+          </Container> */}
 
           <SectionDivider />
 
@@ -124,7 +124,7 @@ export default function PathsToClimateStrategiesPage({ pillars, sectors }) {
                 spacing={6}
                 gridColumn={["1 / -1", null, "1 / -2", "1 / -3", "2 / -3"]}
               >
-                <Text fontSize="xl">
+                <Text fontSize="2xl">
                   {
                     "Through trial and error, governments and others have been testing low-carbon policies for more than two decades. Pathfinders therefore highlights ‘best practices’ – that is, tried-and-true programs that have proved effective at driving decarbonization, as well as newer measures with high potential for future impact."
                   }
@@ -152,7 +152,7 @@ export default function PathsToClimateStrategiesPage({ pillars, sectors }) {
             </InView>
           </Container>
 
-          <SectionDivider gridColumn="1 / -1" />
+          {/* <SectionDivider gridColumn="1 / -1" /> */}
         </Stack>
 
         {/* <InView

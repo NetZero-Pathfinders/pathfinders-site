@@ -107,7 +107,7 @@ export default function StakeholdersPage({ sectors, stakeholders, pillars }) {
                     <SectorCardHeading as="h2" fontSize={["3xl", null, "5xl"]}>
                       {stakeholder.title}
                     </SectorCardHeading>
-                    <Text fontSize={["xl", null, "2xl"]} color="gray.500">
+                    <Text fontSize={["xl", null, "2xl"]}>
                       {stakeholder.description}
                     </Text>
                     <Box flex={1} flexWrap="wrap">

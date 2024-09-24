@@ -179,7 +179,7 @@ export default function HistoricalEmissionsSection() {
               {"Emissions"}
             </Text>
           </Heading>
-          <Text fontSize="2xl" color="gray.500">
+          <Text fontSize="2xl">
             {"Total global emissions, "}
             {currentMode === "withLUCF" ? "including" : "excluding"}
             {" LUCF,"}
@@ -201,7 +201,7 @@ export default function HistoricalEmissionsSection() {
           </RadioGroup> */}
         </Stack>
         <Box gridColumn="1 / span 6">
-          <Text lineHeight="short" color="gray.500">
+          <Text lineHeight="short">
             {
               "Source: Climate Watch Historical GHG Emissions. 2022. Washington, DC: World Resources Institute. Available online at: https://www.climatewatchdata.org/ghg-emissions"
             }
@@ -225,7 +225,7 @@ export default function HistoricalEmissionsSection() {
             {"Show data including LUCF*"}
           </Switch>
         </Box>
-        <Text gridColumn="2 / -3" fontSize="xl" mt={20}>
+        <Text gridColumn="2 / -3" fontSize="2xl" mt={20}>
           {
             "The land-use change and forestry (LUCF) sector can be a carbon sink or a source of emissions. Trees and other vegetation take up carbon dioxide from the atmosphere, but they also release emissions when they are cut down, burned or converted to other land uses. Depending on the balance between emissions and carbon sequestration in this sector within a country’s territory, the resulting net emissions could be positive or negative."
           }
