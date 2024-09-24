@@ -290,7 +290,7 @@ export default function EmissionsBySectorSection() {
               {"by sector"}
             </Text>
           </Heading>
-          <Text fontSize="xl">
+          <Text fontSize="2xl">
             {
               "This section is showing emissions (in MtCO2e) by sector in 2020. This chart takes into account BNEF’s Pathfinders sectors, namely "
             }
@@ -329,12 +329,12 @@ export default function EmissionsBySectorSection() {
             </Text>
             {". Each sector was mapped to the ClimateWatch sectors."}
           </Text>
-          <Text fontSize="xl">
+          <Text fontSize="2xl">
             {
               "The gray circle includes Waste and Fugitive emissions, as well as LUCF depending on the chosen setting. Toggle to include or exclude LUCF in the other emissions. For some countries, LUCF represent a large proportion of their emissions. However, Pathfinders focuses on the five major emitting sectors listed above."
             }
           </Text>
-          <Text fontSize="xl">
+          <Text fontSize="2xl">
             {
               "The size of the circle corresponds to the volume of GHG emissions coming from the particular sector it represents."
             }
@@ -406,7 +406,7 @@ export default function EmissionsBySectorSection() {
           </HStack>
         </HStack>
 
-        <Text gridColumn={["1 / -1", null, null, "2 / -3"]} fontSize="xl">
+        <Text gridColumn={["1 / -1", null, null, "2 / -3"]} fontSize="2xl">
           {
             "Use this tool to easily compare the emissions impact of several markets simultaneously to evaluate and understand how governments’ priorities should differ when designing decarbonization strategies."
           }

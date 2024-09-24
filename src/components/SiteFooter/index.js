@@ -125,7 +125,7 @@ export default function SiteFooter() {
           <Stack py={12} justifyContent="space-between">
             <Stack>
               <ButtonLink
-                href="/paths-to-climate-strategy"
+                href="/paths-to-netzero"
                 size="2xl"
                 variant="defaultLink"
                 colorScheme="blue"
@@ -137,7 +137,7 @@ export default function SiteFooter() {
                   />
                 }
               >
-                {"Paths to climate strategy"}
+                {"Paths to NetZero"}
               </ButtonLink>
               <ButtonLink
                 href="/about"
@@ -169,7 +169,7 @@ export default function SiteFooter() {
               >
                 {"Reports"}
               </ButtonLink>
-              <ButtonLink
+              {/* <ButtonLink
                 href="/newsletter"
                 size="2xl"
                 variant="defaultLink"
@@ -183,7 +183,7 @@ export default function SiteFooter() {
                 }
               >
                 {"Newsletter"}
-              </ButtonLink>
+              </ButtonLink> */}
             </Stack>
             <HStack spacing={3} h={12}>
               <Text flex={1} fontSize="2xl" fontWeight="600">

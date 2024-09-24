@@ -83,7 +83,7 @@ export default function StakeholderPage({
               {frontmatter.title}
             </Heading>
             {frontmatter.description && (
-              <Text fontSize="2xl" color="white">
+              <Text fontSize="2xl" color="white" fontWeight={600}>
                 {frontmatter.description}
               </Text>
             )}

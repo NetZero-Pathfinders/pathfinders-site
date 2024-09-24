@@ -315,12 +315,12 @@ export default function EmissionsByCountrySection() {
               {"by country"}
             </Text>
           </Heading>
-          <Text fontSize="xl">
+          <Text fontSize="2xl">
             {
               "With a few exceptions, greenhouse gas emissions have been growing over the past 30 years."
             }
           </Text>
-          <Text fontSize="xl">
+          <Text fontSize="2xl">
             {
               "With this tool, we illustrate which markets have emitted the most historically, as well as just in the past year.  Some markets like the US and China have both the highest cumulative emissions and continue to emit at the highest rates – the onus falls on these markets to rapidly decarbonize."
             }
@@ -382,7 +382,7 @@ export default function EmissionsByCountrySection() {
 
         <Text
           gridColumn={["1 / -1", null, null, "2 / -3"]}
-          fontSize="xl"
+          fontSize="2xl"
           mt={20}
         >
           {
