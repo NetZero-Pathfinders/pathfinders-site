@@ -217,7 +217,7 @@ export default function BestPracticePage({ source }) {
               spacing={6}
             >
               <MDXRemote {...source} components={bestPracticeComponents} />
-              <Box gridColumn="2 / -3">
+              {/* <Box gridColumn="2 / -3">
                 <Accordion allowMultiple>
                   {layoutSections.map((d) => {
                     return (
@@ -249,7 +249,7 @@ export default function BestPracticePage({ source }) {
                     )
                   })}
                 </Accordion>
-              </Box>
+              </Box> */}
             </SimpleGrid>
           </SimpleGrid>
         </Container>
