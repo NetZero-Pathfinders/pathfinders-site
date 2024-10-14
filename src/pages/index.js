@@ -117,7 +117,7 @@ export default function IndexPage({
           <CombinedDiagram pt={0} />
         </SectionBody>
       </Section>
-
+      <MethodologyReportBanner />
       <LatestBestPractices bestPractices={bestPractices} />
 
       <Banner bg="black" color="white" py={0} borderColor="transparent">
@@ -222,8 +222,6 @@ export default function IndexPage({
           <SectorsCarousel sectors={sectors} />
         </SectionBody>
       </Section>
-
-      <MethodologyReportBanner />
 
       <Section spacing={16}>
         <SectionHeader>
