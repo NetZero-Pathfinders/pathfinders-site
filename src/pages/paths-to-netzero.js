@@ -6,8 +6,6 @@ import {
   Text,
   SimpleGrid,
   Divider,
-  // HStack,
-  // Center,
 } from "@chakra-ui/react"
 // import { Button } from "@chakra-ui/button"
 // import { motion } from "framer-motion"
@@ -72,7 +70,6 @@ export default function PathsToClimateStrategiesPage({ pillars, sectors }) {
                 }
               </Text>
             </Stack>
-            <Divider />
           </Stack>
           <Box
             gridColumn="-3 / -1"
