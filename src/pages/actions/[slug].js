@@ -92,10 +92,10 @@ export default function ActionPage({
                   <WrapItem key={actionSector}>
                     <Link
                       href={`/sectors/${actionSector
-                        .trim()
-                        .toLowerCase()
-                        .split(" ")
-                        .join("-")}`}
+                        ?.trim()
+                        ?.toLowerCase()
+                        ?.split(" ")
+                        ?.join("-")}`}
                       fontSize="md"
                       lineHeight="shorter"
                       fontWeight={600}
@@ -123,8 +123,8 @@ export default function ActionPage({
                   <WrapItem key={actionStakeholder}>
                     <Link
                       href={`/stakeholders/${actionStakeholder
-                        .trim()
-                        .toLowerCase()}`}
+                        ?.trim()
+                        ?.toLowerCase()}`}
                       fontSize="md"
                       lineHeight="shorter"
                       fontWeight={600}

@@ -31,7 +31,7 @@ export default function Legend() {
             <div style={{ width: "1rem", height: "1rem", background: color }} />
             <div
               style={{
-                "whiteSpace": "nowrap",
+                "white-space": "nowrap",
                 overflow: "hidden",
                 textOverflow: "ellipsis",
               }}
