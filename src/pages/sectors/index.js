@@ -43,7 +43,6 @@ const content = {
 }
 
 export default function SectorsPage({ sectors }) {
-  console.log(sectors)
   return (
     <>
       <SEO title="Emitting sectors" />
