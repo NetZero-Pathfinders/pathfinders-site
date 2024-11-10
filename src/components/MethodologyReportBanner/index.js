@@ -18,6 +18,7 @@ export default function MethodologyReportBanner() {
       bgImage="/images/banner.jpg"
       color="white"
       py={0}
+      overflow="hidden"
     >
       <BannerHeader borderColor="transparent">
         <Heading fontSize={["3xl", null, "4xl", "5xl"]} fontWeight={600}>
