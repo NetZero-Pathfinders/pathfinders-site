@@ -76,7 +76,7 @@ export default function BestPracticeListingItem({
             {description}
           </Text>
         </Stack>
-        {date && (
+        {/* {date && (
           <Text
             fontSize="lg"
             color="gray.500"
@@ -86,7 +86,7 @@ export default function BestPracticeListingItem({
           >
             {day(date).format("MMMM DD, YYYY")}
           </Text>
-        )}
+        )} */}
       </Stack>
     </LinkBox>
   )
