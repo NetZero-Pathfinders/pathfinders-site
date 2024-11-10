@@ -72,7 +72,7 @@ export default function ReportsPage({ reports }) {
         <Container>
           <Stack spacing={20} px={5}>
             {reports.map((report) => {
-              const { title, description, slug, cover, url } =
+              const { title, description, slug, cover, url, order } =
                 report.frontmatter
               return (
                 <ReportCardLg
@@ -81,6 +81,7 @@ export default function ReportsPage({ reports }) {
                   description={description}
                   cover={cover}
                   downloadUrl={url}
+                  order={order}
                 />
               )
             })}

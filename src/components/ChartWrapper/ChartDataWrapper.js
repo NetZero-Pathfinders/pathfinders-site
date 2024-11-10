@@ -6,6 +6,7 @@ import ScatterPlot from "./ScatterPlot"
 import { useChartStore } from "./store"
 import ChartFallback from "./ChartFallback"
 import Legend from "./Legend"
+import fetchDataset from "@/utils/api/client/fetchDataset"
 
 /**
  * Chart Data Wrapper
@@ -30,26 +31,13 @@ export default function ChartDataWrapper({
 
   useEffect(() => {
     if (!src) {
-      console.log("THIS")
       setInitialData(chartType, defaultData, colors)
       return
     }
-    const fileName = src.split(".").slice(0, -1).join(".")
-    const isCSV = src.split(".").slice(-1)[0].toLowerCase() === "csv"
-    const fetchData = async (src) => {
-      const url = `/data/charts/${src}`
-      try {
-        const response = await fetch(url)
-        if (!response.ok) {
-          throw new Error(response.statusText)
-        }
-        const dataset = await response.json()
-        setInitialData(chartType, dataset, colors)
-      } catch (error) {
-        console.log("Error while fetching data: ", error)
-      }
-    }
-    fetchData(isCSV ? `${fileName}.json` : src)
+    const url = `/data/charts/${src.split(".").slice(0, -1).join(".")}.txt`
+    fetchDataset(url, "json").then((dataset) => {
+      if (dataset.length) setInitialData(chartType, dataset, colors)
+    })
   }, [
     chartType,
     src,

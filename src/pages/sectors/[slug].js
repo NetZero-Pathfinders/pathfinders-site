@@ -249,7 +249,7 @@ export async function getStaticProps({ params }) {
   })
 
   const relevantBestPractices = bestPractices.filter((d) =>
-    d.frontmatter.sectors.includes(source.frontmatter.title)
+    d.frontmatter.sectors?.includes(source.frontmatter.title)
   )
 
   const counts = {
