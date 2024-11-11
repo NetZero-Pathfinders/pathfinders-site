@@ -7,6 +7,12 @@ import {
   Text,
   SimpleGrid,
   Switch,
+  Popover,
+  PopoverTrigger,
+  PopoverContent,
+  PopoverCloseButton,
+  PopoverBody,
+  HStack,
 } from "@chakra-ui/react"
 import { scaleLinear } from "d3-scale"
 import { extent as _extent } from "d3-array"
@@ -18,6 +24,7 @@ import fetchDataset from "@/utils/api/client/fetchDataset"
 import { useResizeObserver } from "@/utils/useResizeObserver"
 import { useStoryStore } from "@/components/PathsToClimateStrategyStory/useStoryStore"
 import { RadioGroup, RadioGroupItem } from "@/components/RadioGroup"
+import { InfoIcon } from "@/components/Icon"
 
 const useStore = create((set) => ({
   width: 0,
@@ -207,7 +214,7 @@ export default function HistoricalEmissionsSection() {
             }
           </Text>
         </Box>
-        <Box gridColumn="span 2" spacing={3}>
+        <HStack gridColumn="span 2" spacing={3}>
           <Switch
             fontWeight={600}
             fontSize="sm"
@@ -224,12 +231,39 @@ export default function HistoricalEmissionsSection() {
           >
             {"Show data including LUCF*"}
           </Switch>
-        </Box>
-        <Text gridColumn="2 / -3" fontSize="2xl" mt={20}>
+          <Box>
+            <Popover placement="top-end">
+              <PopoverTrigger>
+                <InfoIcon />
+              </PopoverTrigger>
+              <PopoverContent
+                bg="black"
+                color="white"
+                borderRadius="none"
+                p={2}
+              >
+                <PopoverCloseButton />
+                <PopoverBody>
+                  <Text
+                    fontSize="md"
+                    lineHeight="shorter"
+                    fontWeight={600}
+                    pt={6}
+                  >
+                    {
+                      "The land-use change and forestry (LUCF) sector can be a carbon sink or a source of emissions. Trees and other vegetation take up carbon dioxide from the atmosphere, but they also release emissions when they are cut down, burned or converted to other land uses. Depending on the balance between emissions and carbon sequestration in this sector within a country’s territory, the resulting net emissions could be positive or negative."
+                    }
+                  </Text>
+                </PopoverBody>
+              </PopoverContent>
+            </Popover>
+          </Box>
+        </HStack>
+        {/* <Text gridColumn="2 / -3" fontSize="2xl" mt={20}>
           {
             "The land-use change and forestry (LUCF) sector can be a carbon sink or a source of emissions. Trees and other vegetation take up carbon dioxide from the atmosphere, but they also release emissions when they are cut down, burned or converted to other land uses. Depending on the balance between emissions and carbon sequestration in this sector within a country’s territory, the resulting net emissions could be positive or negative."
           }
-        </Text>
+        </Text> */}
       </SimpleGrid>
     </Container>
   )

@@ -139,6 +139,12 @@ export const EmailIcon = ({ viewBox = "0 0 24 24", ...restProps }) => (
   </Icon>
 )
 
+export const InfoIcon = ({ viewBox = "0 0 24 24", ...restProps }) => (
+  <Icon viewBox={viewBox} {...restProps} fill="none" stroke="currentcolor">
+    <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10zM12 17v-6M12 9V7" />
+  </Icon>
+)
+
 export const FiltersIcon = ({ viewBox = "0 0 24 24", ...restProps }) => (
   <Icon viewBox={viewBox} {...restProps}>
     <path d="M4 21L4 14" />

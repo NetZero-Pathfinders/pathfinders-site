@@ -1,14 +1,17 @@
-import { Stack, Heading, Text, Center } from "@chakra-ui/react"
+import { Stack, Heading, Text, Center, Wrap, WrapItem } from "@chakra-ui/react"
 
 import { LinkBox, LinkOverlay } from "@/components/Link"
 import { ArrowRightIcon } from "@/components/Icon"
 import day from "dayjs"
+
+import { Link } from "@/components/Link"
 
 export default function BestPracticeListingItem({
   slug,
   title,
   description,
   date,
+  tags,
 }) {
   return (
     <LinkBox as="article">
@@ -69,14 +72,43 @@ export default function BestPracticeListingItem({
           <Text
             fontSize="xl"
             color="gray.500"
-            fontWeight={600}
+            fontWeight={500}
             pr={[0, null, 16]}
             display={["none", null, "block"]}
           >
             {description}
           </Text>
+          {/* <Wrap>
+            {tags.map((d) => {
+              return (
+                <WrapItem key={d}>
+                  <Link
+                    href={`/best-practices?filters=${encodeURIComponent(d)}`}
+                    fontSize="lg"
+                    lineHeight="shorter"
+                    fontWeight={600}
+                    color="gray.500"
+                    bg="gray.100"
+                    px={2}
+                    py={0.5}
+                    cursor="pointer"
+                    _hover={{ color: "blue.500" }}
+                    _active={{ bg: "gray.200" }}
+                    _focusVisible={{
+                      color: "blue.500",
+                      outline: "0.125rem solid",
+                      outlineColor: "blue.500",
+                      outlineOffset: "0.125rem",
+                    }}
+                  >
+                    {d}
+                  </Link>
+                </WrapItem>
+              )
+            })}
+          </Wrap> */}
         </Stack>
-        {date && (
+        {/* {date && (
           <Text
             fontSize="lg"
             color="gray.500"
@@ -86,7 +118,7 @@ export default function BestPracticeListingItem({
           >
             {day(date).format("MMMM DD, YYYY")}
           </Text>
-        )}
+        )} */}
       </Stack>
     </LinkBox>
   )

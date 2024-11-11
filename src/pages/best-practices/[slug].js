@@ -137,13 +137,13 @@ export default function BestPracticePage({ source }) {
                 })}
               </HStack> */}
               {/* <Box fontWeight={600} h={5} w={0.5} bg="gray.500" /> */}
-              {frontmatter.date && (
+              {/* {frontmatter.date && (
                 <Text fontSize="lg" fontWeight={600} color="blue.500">
                   {`Updated on ${day(frontmatter.date).format(
                     "MMMM DD, YYYY"
                   )}`}
                 </Text>
-              )}
+              )} */}
             </HStack>
             <Wrap>
               {tags.map((d) => {
@@ -263,7 +263,7 @@ export default function BestPracticePage({ source }) {
         <Section>
           <SectionHeader>
             <SectionHeaderContent>
-              <SectionHeaderTitle>{"Related Best Practice"}</SectionHeaderTitle>
+              <SectionHeaderTitle>{"Read next"}</SectionHeaderTitle>
             </SectionHeaderContent>
           </SectionHeader>
           <SectionBody>

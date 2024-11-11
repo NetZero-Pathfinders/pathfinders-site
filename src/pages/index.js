@@ -120,7 +120,7 @@ export default function IndexPage({
       <MethodologyReportBanner />
       <LatestBestPractices bestPractices={bestPractices} />
 
-      <Banner bg="black" color="white" py={0} borderColor="transparent">
+      <Banner bg="black" color="white" py={0} borderColor="transparent" overflow="hidden">
         <BannerHeader borderColor="transparent">
           <Heading fontSize={["3xl", null, "4xl", "5xl"]} fontWeight={600}>
             {

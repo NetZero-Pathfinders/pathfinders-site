@@ -86,8 +86,9 @@ function BestPracticeSorting() {
       value={sorting}
       onChange={(e) => updateSorting(e.target.value)}
     >
-      <option value="relevance">{"Relevance"}</option>
       <option value="latest">{"Latest"}</option>
+      <option value="relevance">{"Relevance"}</option>
+      
     </Select>
   )
 }
