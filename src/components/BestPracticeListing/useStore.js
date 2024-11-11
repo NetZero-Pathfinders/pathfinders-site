@@ -33,12 +33,15 @@ export const useStore = create((set, get) => ({
         ? recursiveSearch(searchIndex, state.searchTerms)
         : initialSearchTerms.length
         ? recursiveSearch(searchIndex, initialSearchTerms)
-        : searchIndex
+        : _sortBy(searchIndex, (o) => -parseInt(o.date.split("-").join("")))
+
+      const hasSearchTerms =
+        state.searchTerms.length || initialSearchTerms.length
       return {
         searchTerms: initialSearchTerms,
         searchIndex,
         filteredItems,
-        sorting: "relevance",
+        sorting: hasSearchTerms ? "relevance" : "latest",
       }
     }),
 
@@ -69,17 +72,20 @@ export const useStore = create((set, get) => ({
     )
     const searchIndex = get().searchIndex
     updateSearchParams(searchTerms, router, pathname, searchParams)
+
+    const hasSearchTerms = searchTerms.length
+
     set({
-      sorting: "relevance",
+      sorting: hasSearchTerms ? "relevance" : "latest",
       searchValue: "",
       searchTerms,
-      filteredItems: !searchTerms.length
-        ? searchIndex
+      filteredItems: !hasSearchTerms
+        ? _sortBy(searchIndex, (o) => -parseInt(o.date.split("-").join("")))
         : recursiveSearch(searchIndex, searchTerms),
     })
   },
 
-  sorting: "relevance",
+  sorting: "latest",
   updateSorting: (sorting) => {
     set((state) => {
       switch (sorting) {
