@@ -70,6 +70,7 @@ export default function SelectedFilters() {
 }
 
 function BestPracticeSorting() {
+  const searchTerms = useStore((state) => state.searchTerms)
   const sorting = useStore((state) => state.sorting)
   const updateSorting = useStore((state) => state.updateSorting)
   return (
@@ -84,11 +85,11 @@ function BestPracticeSorting() {
         outlineOffset: "0.125rem",
       }}
       value={sorting}
+      isDisabled={!searchTerms.length}
       onChange={(e) => updateSorting(e.target.value)}
     >
       <option value="latest">{"Latest"}</option>
       <option value="relevance">{"Relevance"}</option>
-      
     </Select>
   )
 }
