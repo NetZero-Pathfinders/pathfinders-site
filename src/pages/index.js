@@ -69,7 +69,7 @@ const overviewItems = [
 ]
 
 export default function IndexPage({
-  bestPracticeCount,
+  // bestPracticeCount,
   pillars,
   sectors,
   bestPractices,
@@ -86,7 +86,9 @@ export default function IndexPage({
             100,
             bestPracticeCount
           )} est practices that illustrate effective policies to help solve critical climate challenges`} */}
-          {"A curated collection of best practices that illustrate effective policies to help solve critical climate challenges"}
+          {
+            "A curated collection of best practices that illustrate effective policies to help solve critical climate challenges"
+          }
         </HomeBannerSubtitle>
       </HomeBanner>
 
@@ -117,10 +119,12 @@ export default function IndexPage({
           <CombinedDiagram pt={0} />
         </SectionBody>
       </Section>
+
       <MethodologyReportBanner />
+
       <LatestBestPractices bestPractices={bestPractices} />
 
-      <Banner bg="black" color="white" py={0} borderColor="transparent" overflow="hidden">
+      <Banner bg="black" color="white" py={0} borderColor="transparent">
         <BannerHeader borderColor="transparent">
           <Heading fontSize={["3xl", null, "4xl", "5xl"]} fontWeight={600}>
             {
@@ -144,12 +148,10 @@ export default function IndexPage({
                 />
               }
             >
-              {"Read more about Pathfinders"}
+              {"About Pathfinders"}
             </ButtonLink>
             <HStack spacing={12}>
               <img src="bloomberg-logo.svg" />
-              {/* <img src="bloombergnef-logo.svg" />
-              <img src="bloomberg-philanthropies-logo.svg" /> */}
             </HStack>
           </Stack>
         </BannerBody>

@@ -47,7 +47,7 @@ export const HomeBannerTitle = (props) => {
   return (
     <Heading
       as="h1"
-      fontSize="6xl"
+      fontSize={["4xl", null, "6xl"]}
       maxW="45rem"
       {...props}
     />

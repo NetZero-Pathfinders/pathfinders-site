@@ -224,7 +224,9 @@ export default function SiteFooter() {
             </HStack>
           </Stack>
         </SimpleGrid>
-        <Divider borderBottomColor="gray.600" mx={5} />
+        <Box px={5}>
+          <Divider borderBottomColor="gray.600" />
+        </Box>
       </Container>
 
       <Container>
