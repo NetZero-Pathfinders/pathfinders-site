@@ -93,7 +93,7 @@ function Sidebar({ filters }) {
 
 export default function BestPracticesPage({ bestPractices, filters }) {
   const setSearchIndex = useStore((state) => state.setSearchIndex)
-console.log("", bestPractices)
+
   useEffect(() => {
     if (typeof window === "undefined") return undefined
     setSearchIndex(bestPractices)

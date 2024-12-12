@@ -1,4 +1,11 @@
-import { Heading, Text, Box } from "@chakra-ui/react"
+import {
+  Heading,
+  Text,
+  Box,
+  UnorderedList,
+  OrderedList,
+  ListItem,
+} from "@chakra-ui/react"
 
 export default {
   h1: (props) => (
@@ -105,5 +112,28 @@ export default {
         <img {...props} />
       </Box>
     )
+  },
+  ul: (props) => {
+    return (
+      <UnorderedList
+        spacing={2}
+        ml="1.375rem"
+        gridColumn={["1 / -1", null, "1 / -2", "1 / -3", "2 / -3"]}
+        {...props}
+      />
+    )
+  },
+  ol: (props) => {
+    return (
+      <OrderedList
+        spacing={2}
+        ml="1.375rem"
+        gridColumn={["1 / -1", null, "1 / -2", "1 / -3", "2 / -3"]}
+        {...props}
+      />
+    )
+  },
+  li: (props) => {
+    return <ListItem fontSize="xl" {...props} />
   },
 }
