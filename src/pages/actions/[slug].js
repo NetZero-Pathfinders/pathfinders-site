@@ -18,9 +18,9 @@ import getPages from "@/utils/api/server/getPages"
 import getPage from "@/utils/api/server/getPage"
 
 import SEO from "@/components/SEO"
-// import { ArrowRightIcon } from "@/components/Icon"
+import { ArrowRightIcon } from "@/components/Icon"
 import {
-  // ButtonLink,
+  ButtonLink,
   Link,
 } from "@/components/Link"
 // import PageDivider from "@/components/PageDivider"
@@ -41,10 +41,10 @@ import {
   SectionHeaderContent,
   SectionHeaderTitle,
   // SectionHeaderSubtitle,
-  // SectionHeaderLinks,
+  SectionHeaderLinks,
 } from "@/components/SectionHeader"
 import ActionsListing from "@/components/ActionsListing"
-// import { BestPracticeListingItem } from "@/components/BestPracticeListing"
+import { BestPracticeListingItem } from "@/components/BestPracticeListing"
 
 const content = {
   backButton: { label: "All actions", href: "/actions" },
@@ -200,7 +200,7 @@ export default function ActionPage({
             <SimpleGrid columns={8} spacing={3}>
               <MDXRemote {...source} components={pillarComponents} />
             </SimpleGrid>
-            {/* <Divider />
+            <Divider />
             <SectionHeader>
               <SectionHeaderContent>
                 <SectionHeaderTitle>
@@ -236,8 +236,7 @@ export default function ActionPage({
                   )
                 })}
               </Stack>
-            )} */}
-            <Divider />
+            )}
             <SectionHeader>
               <SectionHeaderContent>
                 <SectionHeaderTitle>{"Read next"}</SectionHeaderTitle>

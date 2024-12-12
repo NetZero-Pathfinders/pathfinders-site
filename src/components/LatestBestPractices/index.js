@@ -14,17 +14,17 @@ import {
 } from "@/components/Section"
 import { BestPracticeListingItem } from "@/components/BestPracticeListing"
 
-export default function LatestBestPractices({ bestPractices }) {
+export default function LatestBestPractices({
+  title = "Latest best practices",
+  description = "In the race to reduce carbon emissions, regional, national and international policymakers don’t have time to wait",
+  bestPractices,
+}) {
   return (
     <Section spacing={16} py={12}>
       <SectionHeader>
         <SectionHeaderContent>
-          <SectionHeaderTitle>{"Latest best practices"}</SectionHeaderTitle>
-          <SectionHeaderSubtitle>
-            {
-              "In the race to reduce carbon emissions, regional, national and international policymakers don’t have time to wait"
-            }
-          </SectionHeaderSubtitle>
+          <SectionHeaderTitle>{title}</SectionHeaderTitle>
+          <SectionHeaderSubtitle>{description}</SectionHeaderSubtitle>
         </SectionHeaderContent>
         <SectionHeaderLinks>
           <ButtonLink
@@ -43,7 +43,6 @@ export default function LatestBestPractices({ bestPractices }) {
           </ButtonLink>
         </SectionHeaderLinks>
       </SectionHeader>
-
       <SectionBody>
         <SimpleGrid columns={[1, null, null, null, 2]} spacing={6}>
           {bestPractices.map((bestPractice) => {

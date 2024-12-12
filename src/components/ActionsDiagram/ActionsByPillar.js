@@ -10,6 +10,7 @@ import {
   Button,
 } from "@chakra-ui/react"
 import _groupBy from "lodash/groupBy"
+import _sortBy from "lodash/sortBy"
 import { AnimatePresence, motion } from "framer-motion"
 
 import { Tabs, TabList, Tab, TabUnderline } from "@/components/Tabs"
@@ -117,7 +118,10 @@ export default function ActionsByPillar({
         recommendations.filter((d) => d.pillar === currentPillar),
         (o) => parseInt(o.gridColumn.split("/")[0]) - 1
       )
-    ).map(([key, recommendations]) => ({ key, recommendations }))
+    ).map(([key, recommendations]) => ({
+      key,
+      recommendations: _sortBy(recommendations, (o) => -o.sectorIds.length),
+    }))
     return actions
   }, [currentPillar])
 
