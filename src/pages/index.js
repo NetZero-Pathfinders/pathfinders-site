@@ -4,6 +4,7 @@ import _sortBy from "lodash/sortBy"
 import getNavigation from "@/utils/api/server/getNavigation"
 import getPages from "@/utils/api/server/getPages"
 
+import SEO from "@/components/SEO"
 import { ArrowRightIcon } from "@/components/Icon"
 import { ButtonLink } from "@/components/Link"
 import PageDivider from "@/components/PageDivider"
@@ -77,6 +78,7 @@ export default function IndexPage({
 }) {
   return (
     <Page>
+      <SEO />
       <HomeBanner>
         <HomeBannerTitle>
           {"Chart your journey to a low-carbon future"}
