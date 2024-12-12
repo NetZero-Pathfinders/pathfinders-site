@@ -277,9 +277,11 @@ export async function getStaticProps() {
 
   const sectorsRaw = await getPages({ pageType: "sectors" })
   const bestPracticesRaw = await getPages({ pageType: "best-practices" })
-  const bestPractices = bestPracticesRaw
-    .map((d) => d.frontmatter)
-    .filter((d) => d.published)
+  const bestPractices = _sortBy(
+    bestPracticesRaw.map((d) => d.frontmatter).filter((d) => d.published),
+    (o) => -(parseInt(o.date.split("-").join("")) || 0)
+  )
+
   const sectors = _sortBy(
     sectorsRaw.map((d) => d.frontmatter),
     (o) => o.key
