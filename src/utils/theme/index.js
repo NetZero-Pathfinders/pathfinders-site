@@ -85,6 +85,59 @@ export default {
   },
   colors: colorsTheme,
   components: componentsTheme,
+  textStyles: {
+    h1_mdx: {
+      fontSize: ["4xl", null, "5xl"],
+      lineHeight: "shorter",
+      gridColumn: ["1 / -1", null, "1 / -2", "1 / -3", "2 / -3"],
+      mb: 6,
+      gridRow: "span 1",
+    },
+    h2_mdx: {
+      fontSize: ["3xl", null, "4xl"],
+      lineHeight: "shorter",
+      gridColumn: ["1 / -1", null, "1 / -2", "1 / -3", "2 / -3"],
+      mb: 6,
+      gridRow: "span 1",
+    },
+    h2_mdx_source: {
+      fontSize: ["3xl", null, "4xl"],
+      lineHeight: "shorter",
+      gridColumn: ["1 / -1", null, "1 / -2", "1 / -3", "2 / -3"],
+      borderTop: "0.0625rem solid",
+      borderColor: "gray.200",
+      pt: 6,
+      gridRow: "span 1",
+    },
+    h3_mdx: {
+      fontSize: ["2xl", null, "3xl"],
+      lineHeight: "shorter",
+      gridColumn: ["1 / -1", null, "1 / -2", "1 / -3", "2 / -3"],
+      mb: 6,
+      gridRow: "span 1",
+    },
+    h4_mdx: {
+      fontSize: ["xl", null, "2xl"],
+      lineHeight: "shorter",
+      gridColumn: ["1 / -1", null, "1 / -2", "1 / -3", "2 / -3"],
+      mb: 6,
+      gridRow: "span 1",
+    },
+    h5_mdx: {
+      fontSize: ["lg", null, "xl"],
+      lineHeight: "shorter",
+      gridColumn: ["1 / -1", null, "1 / -2", "1 / -3", "2 / -3"],
+      mb: 6,
+      gridRow: "span 1",
+    },
+    h6_mdx: {
+      fontSize: ["md", null, "lg"],
+      lineHeight: "shorter",
+      gridColumn: ["1 / -1", null, "1 / -2", "1 / -3", "2 / -3"],
+      mb: 6,
+      gridRow: "span 1",
+    },
+  },
 }
 
 // import colorsTheme from "@utils/theme/colors"

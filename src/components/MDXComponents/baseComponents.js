@@ -8,66 +8,12 @@ import {
 } from "@chakra-ui/react"
 
 export default {
-  h1: (props) => (
-    <Heading
-      as="h1"
-      gridRow="span 1"
-      gridColumn={["1 / -1", null, "1 / -2", "1 / -3", "2 / -3"]}
-      fontSize="5xl"
-      mb={6}
-      {...props}
-    />
-  ),
-  h2: (props) => (
-    <Heading
-      as="h2"
-      gridColumn={["1 / -1", null, "1 / -2", "1 / -3", "2 / -3"]}
-      gridRow="span 1"
-      fontSize={["3xl", null, "5xl"]}
-      mb={6}
-      {...props}
-    />
-  ),
-  h3: (props) => (
-    <Heading
-      as="h3"
-      gridRow="span 1"
-      gridColumn={["1 / -1", null, "1 / -2", "1 / -3", "2 / -3"]}
-      fontSize={["3xl", null, "4xl"]}
-      mb={6}
-      {...props}
-    />
-  ),
-  h4: (props) => (
-    <Heading
-      as="h4"
-      gridRow="span 1"
-      gridColumn={["1 / -1", null, "1 / -2", "1 / -3", "2 / -3"]}
-      fontSize={["3xl", null, "4xl"]}
-      mb={6}
-      {...props}
-    />
-  ),
-  h5: (props) => (
-    <Heading
-      as="h5"
-      gridRow="span 1"
-      gridColumn={["1 / -1", null, "1 / -2", "1 / -3", "2 / -3"]}
-      fontSize={["3xl", null, "4xl"]}
-      mb={6}
-      {...props}
-    />
-  ),
-  h6: (props) => (
-    <Heading
-      as="h6"
-      gridRow="span 1"
-      gridColumn={["1 / -1", null, "1 / -2", "1 / -3", "2 / -3"]}
-      fontSize={["3xl", null, "4xl"]}
-      mb={6}
-      {...props}
-    />
-  ),
+  h1: (props) => <Heading as="h1" textStyle="h1_mdx" {...props} />,
+  h2: (props) => <Heading as="h2" textStyle="h2_mdx" {...props} />,
+  h3: (props) => <Heading as="h3" textStyle="h3_mdx" {...props} />,
+  h4: (props) => <Heading as="h4" textStyle="h4_mdx" {...props} />,
+  h5: (props) => <Heading as="h5" textStyle="h5_mdx" {...props} />,
+  h6: (props) => <Heading as="h6" textStyle="h6_mdx" {...props} />,
   p: (props) => {
     const isCaption =
       props.children.type === "strong" &&

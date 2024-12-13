@@ -44,6 +44,7 @@ import {
 } from "@/components/Section"
 import { useStore } from "@/components/BestPracticeListing"
 import { BestPracticeListingItem } from "@/components/BestPracticeListing"
+import ActionsListing from "@/components/ActionsListing"
 
 const layoutSections = [
   {
@@ -64,7 +65,7 @@ const layoutSections = [
   },
 ]
 
-export default function BestPracticePage({ source }) {
+export default function BestPracticePage({ source, relatedActions }) {
   const { frontmatter } = source
   const tags = frontmatter.tags || []
 
@@ -274,6 +275,19 @@ export default function BestPracticePage({ source }) {
             </Stack>
           </SectionBody>
         </Section>
+
+        {relatedActions.length ? (
+          <Section>
+            <SectionHeader>
+              <SectionHeaderContent>
+                <SectionHeaderTitle>{"Related actions"}</SectionHeaderTitle>
+              </SectionHeaderContent>
+            </SectionHeader>
+            <SectionBody>
+              <ActionsListing actions={relatedActions} />
+            </SectionBody>
+          </Section>
+        ) : null}
       </Stack>
     </>
   )
@@ -283,7 +297,18 @@ export async function getStaticProps({ params }) {
   const navigation = await getNavigation()
   const { slug } = params
   const source = await getPage({ slug, pageType: "best-practices" })
-  return { props: { source, navigation } }
+
+  const allActions = await getPages({
+    pageType: "actions",
+    fields: ["frontmatter", "slug"],
+  })
+
+  const relatedActions = source.frontmatter.actions
+    .map((id) => allActions.find((s) => s.frontmatter.id === id))
+    .filter((d) => d)
+    .map((d) => ({ ...d.frontmatter, slug: d.slug }))
+
+  return { props: { source, relatedActions, navigation } }
 }
 
 export async function getStaticPaths() {
