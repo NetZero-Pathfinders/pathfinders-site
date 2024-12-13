@@ -72,7 +72,8 @@ export default {
       fontSize: "3xl",
       p: 6,
       pr: 4,
-      aspectRatio: [1, 1.75, 1.25, 1.5, 1],
+      // aspectRatio: [1, 1.75, 1.25, 1.5, 1],
+      aspectRatio: [null, null, null, null, 1],
       "span:last-of-type": { flex: "none", alignSelf: "flex-end" },
     }),
     outline: (props) => ({

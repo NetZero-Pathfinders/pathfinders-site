@@ -12,18 +12,13 @@ export default {
   SignUpButton: (props) => <div {...props} />,
 
   h2: ({ children, ...restProps }) => {
-    const isSource = children.includes("Source")
-    return (
-      <Heading
-        as="h2"
-        fontSize="3xl"
-        lineHeight="shorter"
-        gridColumn={["1 / -1", null, "1 / -2", "1 / -3", "2 / -3"]}
-        pt={isSource ? "6" : 0}
-        borderTop={isSource ? "0.0625rem solid" : "none"}
-        borderColor={isSource ? "gray.200" : "transparent"}
-        {...restProps}
-      >
+    const isSource = `${children}`.trim().toLowerCase().startsWith("source")
+    return isSource ? (
+      <Heading as="h2" textStyle="h2_mdx_source" {...restProps}>
+        {children}
+      </Heading>
+    ) : (
+      <Heading as="h2" textStyle="h2_mdx" {...restProps}>
         {children}
       </Heading>
     )
@@ -70,14 +65,19 @@ export default {
         spacing={3}
         borderBottom="0.25rem solid"
         borderColor="black"
-        py={[0, null, null, 6]}
+        py={[3, null, null, 6]}
         {...restProps}
       >
-        <Heading as="h3" fontSize="3xl" lineHeight="shorter" color="blue.500">
+        <Heading
+          as="h3"
+          fontSize={["2xl", null, "3xl"]}
+          lineHeight="shorter"
+          color="blue.500"
+        >
           {title}
         </Heading>
         <Text
-          fontSize="xl"
+          fontSize={["lg", null, "xl"]}
           lineHeight="short"
           fontWeight={500}
           color="gray.500"
