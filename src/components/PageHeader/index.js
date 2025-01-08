@@ -94,7 +94,7 @@ export function PageHeaderTitle({ children }) {
 }
 
 export function PageHeaderSubtitle({ color = "gray.900", ...restProps }) {
-  return <Text fontSize="2xl" fontWeight={600} color={color} {...restProps} />
+  return <Text fontSize="2xl" color={color} {...restProps} />
 }
 
 export function PageHeaderLinks({ children }) {
