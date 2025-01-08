@@ -1,4 +1,5 @@
 import { Stack } from "@chakra-ui/react"
+import _sortBy from "lodash/sortBy"
 
 import getNavigation from "@/utils/api/server/getNavigation"
 import getPages from "@/utils/api/server/getPages"
@@ -90,5 +91,11 @@ export async function getStaticProps() {
     fields: ["frontmatter"],
   })
 
-  return { props: { navigation, issues } }
+  const sortedIssues = _sortBy(issues, (o, i) => {
+    const parts = `${o.frontmatter.date}`.split("-")
+    if (!parts.length) return 0
+    return -parseInt([...parts, "01", "01"].slice(0, 3).join(""))
+  })
+
+  return { props: { navigation, issues: sortedIssues } }
 }
