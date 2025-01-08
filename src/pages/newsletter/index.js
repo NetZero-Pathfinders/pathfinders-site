@@ -86,7 +86,7 @@ export default function NewsletterPage({ issues }) {
 export async function getStaticProps() {
   const navigation = await getNavigation()
   const issues = await getPages({
-    pageType: "newsletter",
+    pageType: "newsletters",
     fields: ["frontmatter"],
   })
 
