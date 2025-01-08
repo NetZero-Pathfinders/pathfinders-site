@@ -11,6 +11,7 @@ export default function BestPracticeListingItem({
   title,
   description,
   date,
+  visibleDate,
   tags,
 }) {
   return (
@@ -23,6 +24,17 @@ export default function BestPracticeListingItem({
         h="100%"
       >
         <Stack py={2} flex={1}>
+          {visibleDate ? (
+            <Text
+              fontSize="md"
+              color="gray.500"
+              fontWeight={500}
+              pr={[0, null, 16]}
+              display={["none", null, "block"]}
+            >
+              {visibleDate}
+            </Text>
+          ) : null}
           <Heading as="h3" fontSize={["xl", null, "2xl", "3xl"]} display="flex">
             <LinkOverlay
               href={slug}
@@ -69,15 +81,18 @@ export default function BestPracticeListingItem({
               />
             </Center>
           </Heading>
-          <Text
-            fontSize="xl"
-            color="gray.500"
-            fontWeight={500}
-            pr={[0, null, 16]}
-            display={["none", null, "block"]}
-          >
-            {description}
-          </Text>
+          {description ? (
+            <Text
+              fontSize="xl"
+              color="gray.500"
+              fontWeight={500}
+              pr={[0, null, 16]}
+              display={["none", null, "block"]}
+            >
+              {description}
+            </Text>
+          ) : null}
+
           {/* <Wrap>
             {tags.map((d) => {
               return (

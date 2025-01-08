@@ -19,3 +19,7 @@ export const Link = forwardRef((props, ref) => {
 export const ButtonLink = forwardRef((props, ref) => {
   return <Button ref={ref} as={NextLink} scroll={true} {...props} />
 })
+
+export const DownloadLink = forwardRef((props, ref) => {
+  return <Button ref={ref} as="a" {...props} />
+})

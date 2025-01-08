@@ -29,7 +29,7 @@ const content = {
 export default function ReportsPage({ reports }) {
   return (
     <>
-      <SEO title="NetZero Pathfinders Reports" />
+      <SEO title="Reports" />
       <Stack as="main" spacing={16} pb={24}>
         <PageHeader bg="white" color="black">
           <PageHeaderSubnavigation borderTopColor="gray.200">

@@ -155,6 +155,21 @@ export default function SiteFooter() {
                 {"About Pathfinders"}
               </ButtonLink>
               <ButtonLink
+                href="/newsletter"
+                size="2xl"
+                variant="defaultLink"
+                colorScheme="blue"
+                rightIcon={
+                  <ArrowRightIcon
+                    size="2rem"
+                    strokeWidth={2.5}
+                    isAnimated="right"
+                  />
+                }
+              >
+                {"Newsletter"}
+              </ButtonLink>
+              <ButtonLink
                 href="/reports"
                 size="2xl"
                 variant="defaultLink"
