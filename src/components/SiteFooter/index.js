@@ -285,7 +285,7 @@ export default function SiteFooter() {
           </HStack>
           <HStack>
             <Text fontSize="sm" lineHeight="short">
-              {"© 2024 Bloomberg L.P. All Rights Reserved."}
+              {`© ${new Date().getFullYear()} Bloomberg L.P. All Rights Reserved.`}
             </Text>
             <Link variant="logo" href="/" flex="none" w="9.375rem" p={1}>
               <Logo inverted />
