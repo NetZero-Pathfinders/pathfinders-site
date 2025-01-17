@@ -89,23 +89,33 @@ export default {
   },
 
   BarChart: (props) => {
+    const [top, right, bottom, left] = props.padding || []
+    const chartPadding = { top, right, bottom, left }
     return (
       <ChartContainer>
-        <ChartWrapper chartType="bar" {...props} />
+        <ChartWrapper chartType="bar" chartPadding={chartPadding} {...props} />
       </ChartContainer>
     )
   },
   LineChart: (props) => {
+    const [top, right, bottom, left] = props.padding || []
+    const chartPadding = { top, right, bottom, left }
     return (
       <ChartContainer>
-        <ChartWrapper chartType="line" {...props} />
+        <ChartWrapper chartType="line" chartPadding={chartPadding} {...props} />
       </ChartContainer>
     )
   },
   ScatterPlot: (props) => {
+    const [top, right, bottom, left] = props.padding || []
+    const chartPadding = { top, right, bottom, left }
     return (
       <ChartContainer>
-        <ChartWrapper chartType="scatter" {...props} />
+        <ChartWrapper
+          chartType="scatter"
+          chartPadding={chartPadding}
+          {...props}
+        />
       </ChartContainer>
     )
   },
