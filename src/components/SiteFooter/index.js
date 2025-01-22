@@ -261,7 +261,13 @@ export default function SiteFooter() {
             <Text fontSize="sm" lineHeight="short">
               {"© 2024 Bloomberg L.P. All Rights Reserved."}
             </Text>
-            <Link variant="logo" href="/" flex="none" w="9.375rem" p={1}>
+            <Link
+              variant="logo"
+              href="/"
+              flex="none"
+              w={{ base: "11rem", sm: "14rem" }}
+              p={1}
+            >
               <Logo inverted />
             </Link>
           </HStack>
@@ -287,7 +293,13 @@ export default function SiteFooter() {
             <Text fontSize="sm" lineHeight="short">
               {`© ${new Date().getFullYear()} Bloomberg L.P. All Rights Reserved.`}
             </Text>
-            <Link variant="logo" href="/" flex="none" w="9.375rem" p={1}>
+            <Link
+              variant="logo"
+              href="/"
+              flex="none"
+              w={{ base: "11rem", sm: "14rem" }}
+              p={1}
+            >
               <Logo inverted />
             </Link>
           </HStack>

@@ -114,7 +114,13 @@ export default function NavigationOverlay({ navigation }) {
                   zIndex={1}
                   boxShadow={`0 0.0625rem 0 ${colors.gray[200]}`}
                 >
-                  <Link variant="logo" href="/" flex="none" w="9.375rem" p={1}>
+                  <Link
+                    variant="logo"
+                    href="/"
+                    flex="none"
+                    w={{ base: "11rem", sm: "14rem" }}
+                    p={1}
+                  >
                     <Logo />
                   </Link>
                   <Button

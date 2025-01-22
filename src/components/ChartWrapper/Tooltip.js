@@ -1,7 +1,18 @@
 import { useRef } from "react"
 import { useEventListener } from "usehooks-ts"
+import dayjs from "dayjs"
 
 import { useChartStore } from "./store"
+
+function isDate(val) {
+  const parts = val.split("-")
+  return (
+    parts.length === 3 &&
+    parts[0].length === 4 &&
+    parts[1].length === 2 &&
+    parts[2].length === 2
+  )
+}
 
 export default function Tooltip() {
   const tooltipRef = useRef(null)
@@ -71,30 +82,26 @@ export default function Tooltip() {
                   }}
                 >
                   <td colSpan={2} style={{ paddingBottom: "0.5rem" }}>
-                    <div style={{ paddingBottom: "0.5rem" }}>
-                      {tooltip.name || ""}
+                    <div
+                      style={{
+                        paddingBottom: "0.5rem",
+                        display: "flex",
+                        justifyContent: "space-between",
+                        gap: "1rem",
+                      }}
+                    >
+                      <span>{tooltip.name || ""}</span>
+                      <span>
+                        {tooltip.data[0].unit || tooltip.data[0].y_unit
+                          ? `${tooltip.data[0].unit || tooltip.data[0].y_unit}`
+                          : ""}
+                      </span>
                     </div>
                     <hr />
                   </td>
                 </tr>
               )}
 
-              {/* {tooltip.data?.length > 1 && (
-                <tr
-                  style={{
-                    fontSize: "1em",
-                    lineHeight: "calc(1em + 0.25rem)",
-                    fontWeight: 600,
-                  }}
-                >
-                  <td colSpan={2} style={{ paddingBottom: "0.5rem" }}>
-                    <div style={{ paddingBottom: "0.5rem" }}>
-                      {tooltip.name || ""}
-                    </div>
-                    <hr />
-                  </td>
-                </tr>
-              )} */}
               {tooltip.data
                 ?.slice()
                 .reverse()
@@ -112,9 +119,10 @@ export default function Tooltip() {
                           fontWeight: 600,
                           verticalAlign: "top",
                           padding: "0.25rem 0.75rem 0.25rem 0",
+                          textTransform: "capitalize",
                         }}
                       >
-                        {d.color && (
+                        {d.color && tooltip.data.length > 1 && (
                           <div
                             style={{
                               width: "0.875rem",
@@ -129,14 +137,26 @@ export default function Tooltip() {
                           />
                         )}
 
-                        {d.group || d.x_val || "N/A"}
+                        {d.group ||
+                          (isDate(d.x_val || "")
+                            ? dayjs(d.x_val).format("DD MMM YYYY")
+                            : d.x_val) ||
+                          "N/A"}
                       </td>
                       <td
                         style={{
                           verticalAlign: "top",
                           padding: "0.25rem 0 0.25rem 0.75rem",
+                          textAlign: "end",
                         }}
-                      >{`${d.y_val} ${d.unit || ""}`}</td>
+                      >
+                        {d.y_val.toLocaleString("en-us")}
+                        {` ${
+                          tooltip.data.length === 1
+                            ? d.unit || d.y_unit || ""
+                            : ""
+                        }`}
+                      </td>
                     </tr>
                   )
                 })}

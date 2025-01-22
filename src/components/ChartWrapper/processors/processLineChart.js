@@ -16,7 +16,7 @@ function getLineDataValue(key, d) {
   const valueType = getLineDataValueType(fixedXVal)
   const x_val = isYear ? `${fixedXVal}-01-01` : fixedXVal
   const y_val = parseFloat(d.y_val) || (isNaN(parseFloat(d.y_val)) ? "" : 0)
-  return { key, x_val, y_val, unit: d.unit || "", valueType }
+  return { key, x_val, y_val, unit: d.unit || d.y_unit || "", valueType }
 }
 
 export function processLineChart(data, colors) {
@@ -60,7 +60,8 @@ export function processLineChart(data, colors) {
       allXValues,
       allYValues,
       xValueType,
-      x: xDomain.map((dx, i) => dx.split("-")[0] + (!i ? "-01-01" : "-12-31")),
+      // x: xDomain.map((dx, i) => dx.split("-")[0] + (!i ? "-01-01" : "-12-31")),
+      x: xDomain,
       y: [Math.min(yDomain[0]), Math.max(yDomain[1])],
     },
   }

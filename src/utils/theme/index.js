@@ -110,21 +110,21 @@ export default {
       gridRow: "span 1",
     },
     h3_mdx: {
-      fontSize: ["2xl", null, "3xl"],
-      lineHeight: "shorter",
-      gridColumn: ["1 / -1", null, "1 / -2", "1 / -3", "2 / -3"],
-      mb: 6,
-      gridRow: "span 1",
-    },
-    h4_mdx: {
       fontSize: ["xl", null, "2xl"],
       lineHeight: "shorter",
       gridColumn: ["1 / -1", null, "1 / -2", "1 / -3", "2 / -3"],
       mb: 6,
       gridRow: "span 1",
     },
-    h5_mdx: {
+    h4_mdx: {
       fontSize: ["lg", null, "xl"],
+      lineHeight: "shorter",
+      gridColumn: ["1 / -1", null, "1 / -2", "1 / -3", "2 / -3"],
+      mb: 6,
+      gridRow: "span 1",
+    },
+    h5_mdx: {
+      fontSize: ["md", null, "lg"],
       lineHeight: "shorter",
       gridColumn: ["1 / -1", null, "1 / -2", "1 / -3", "2 / -3"],
       mb: 6,

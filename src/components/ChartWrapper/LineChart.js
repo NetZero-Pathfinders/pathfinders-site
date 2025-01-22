@@ -220,21 +220,26 @@ function TooltipPolygons({ data, width, height, domain, xScale, yScale }) {
       .y(() => height / 2)
     return voronoi(domain?.allXValues || []).polygons()
   }, [width, height, JSON.stringify(domain.allXValues), xScale, yScale])
+
+  const x = tooltip
+    ? tooltip.data.reduce((acc, cur) => acc || cur.x_val, "")
+    : ""
+
   return (
     <g>
       {tooltip && (
         <g>
           <line
-            x1={xScale(new Date(tooltip.name))}
-            x2={xScale(new Date(tooltip.name))}
+            x1={xScale(new Date(x))}
+            x2={xScale(new Date(x))}
             y1={0}
             y2={height}
             strokeWidth={3}
             stroke="#FFF"
           />
           <line
-            x1={xScale(new Date(tooltip.name))}
-            x2={xScale(new Date(tooltip.name))}
+            x1={xScale(new Date(x))}
+            x2={xScale(new Date(x))}
             y1={0}
             y2={height}
             stroke={colors.gray[300]}
@@ -253,11 +258,13 @@ function TooltipPolygons({ data, width, height, domain, xScale, yScale }) {
                   (s) => s.x_val === tooltipPolygon.data
                 )
                 return {
-                  x_val:
-                    dd.group === "no-group"
-                      ? relevantPoints?.x_val
-                      : dd.group || "",
+                  x_val: relevantPoints?.x_val,
+                  // x_val:
+                  //   dd.group === "no-group"
+                  //     ? relevantPoints?.x_val
+                  //     : dd.group || "",
                   y_val: relevantPoints?.y_val,
+                  group: dd?.group === "no-group" ? "" : dd?.group || "",
                   unit: relevantPoints?.unit,
                   color: dd.color || "",
                 }
@@ -270,10 +277,21 @@ function TooltipPolygons({ data, width, height, domain, xScale, yScale }) {
                 "day": "DD MMM YYYY",
               }
 
-              setTooltip({
-                name: xType
+              // setTooltip({
+              //   name: xType
+              //     ? dayjs(tooltipPolygon.data).format(dateFormats[xType])
+              //     : tooltipPolygon.data,
+              //   data: relevantData,
+              // })
+
+              const name = relevantData[0].group
+                ? xType
                   ? dayjs(tooltipPolygon.data).format(dateFormats[xType])
-                  : tooltipPolygon.data,
+                  : tooltipPolygon.data
+                : ""
+
+              setTooltip({
+                name,
                 data: relevantData,
               })
             }}

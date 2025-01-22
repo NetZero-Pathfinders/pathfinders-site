@@ -342,7 +342,10 @@ function TooltipRect({ data, ...restProps }) {
 
   const handleMouseEnter = () => {
     setIsActive(true)
-    setTooltip(data)
+    setTooltip({
+      ...data,
+      name: data.data.length > 1 ? data.name : "",
+    })
   }
 
   const handleMouseLeave = () => {

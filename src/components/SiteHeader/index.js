@@ -16,7 +16,13 @@ export default function SiteHeader({ navigation = {} }) {
           px={5}
           justifyContent="space-between"
         >
-          <Link variant="logo" href="/" flex="none" w="9.375rem" p={1}>
+          <Link
+            variant="logo"
+            href="/"
+            flex="none"
+            w={{ base: "11rem", sm: "14rem" }}
+            p={1}
+          >
             <Logo color="black" />
           </Link>
           <HStack spacing={2}>

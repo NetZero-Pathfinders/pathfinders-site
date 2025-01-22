@@ -131,10 +131,8 @@ function ChartContainer(props) {
           flexDirection: "column",
           gap: "1rem",
           ".chart__title": {
-            fontSize: "2xl",
-            lineHeight: "shorter",
-            letterSpacing: "-0.015em",
             fontWeight: 700,
+            textStyle: "h3_mdx",
           },
           "figure": {
             display: "flex",

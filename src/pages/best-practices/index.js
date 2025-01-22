@@ -183,15 +183,15 @@ export async function getStaticProps() {
 
   const filters = [
     {
-      name: "Regions",
-      items: regions,
-    },
-    {
       name: "Pillars",
       items: _sortBy(
         pillars.map((d) => d.frontmatter),
         (o) => o.key
       ).map((pillar) => `${pillar.key}. ${pillar.title}`),
+    },
+    {
+      name: "Regions",
+      items: regions,
     },
     {
       name: "Sectors",
