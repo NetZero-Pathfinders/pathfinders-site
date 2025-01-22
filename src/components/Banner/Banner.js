@@ -22,6 +22,7 @@ export default function Banner({
       bgPosition={bgPosition}
       color={color}
       py={py}
+      overflow="hidden"
     >
       <Container>
         <Box px={5} position="relative">

@@ -23,7 +23,7 @@ import { useInView } from "react-intersection-observer"
 import fetchDataset from "@/utils/api/client/fetchDataset"
 import { useResizeObserver } from "@/utils/useResizeObserver"
 import { useStoryStore } from "@/components/PathsToClimateStrategyStory/useStoryStore"
-import { RadioGroup, RadioGroupItem } from "@/components/RadioGroup"
+// import { RadioGroup, RadioGroupItem } from "@/components/RadioGroup"
 import { InfoIcon } from "@/components/Icon"
 
 const useStore = create((set) => ({
@@ -234,7 +234,9 @@ export default function HistoricalEmissionsSection() {
           <Box>
             <Popover placement="top-end">
               <PopoverTrigger>
-                <InfoIcon />
+                <div>
+                  <InfoIcon />
+                </div>
               </PopoverTrigger>
               <PopoverContent
                 bg="black"
