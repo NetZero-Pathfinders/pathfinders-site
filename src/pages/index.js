@@ -84,10 +84,6 @@ export default function IndexPage({
           {"Chart your journey to a low-carbon future"}
         </HomeBannerTitle>
         <HomeBannerSubtitle>
-          {/* {`A curated collection of ${Math.min(
-            100,
-            bestPracticeCount
-          )} est practices that illustrate effective policies to help solve critical climate challenges`} */}
           {
             "A curated collection of best practices that illustrate effective policies to help solve critical climate challenges"
           }

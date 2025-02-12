@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 import { useCombobox } from "downshift"
 import { matchSorter } from "match-sorter"
 import { useRouter } from "next/navigation"
@@ -14,6 +14,9 @@ export default function useQuickSearch({
 }) {
   const [referenceItems, setReferenceItems] = useState([])
   const [inputItems, setInputItems] = useState([])
+  const isFetching = useRef(false)
+
+  const referenceItemsCount = referenceItems.length
 
   const router = useRouter()
 
@@ -70,7 +73,9 @@ export default function useQuickSearch({
   })
 
   useEffect(() => {
-    if (typeof window === "undefined") return
+    if (typeof window === "undefined") return undefined
+    if (referenceItemsCount > 0) return undefined
+    if (!!isFetching.current) return undefined
 
     const searchIndices = {
       lite: "/data/search-index-lite.txt",
@@ -79,42 +84,41 @@ export default function useQuickSearch({
 
     const searchIndexUrl = searchIndices[searchIndex] || searchIndices.lite
 
+    isFetching.current = true
+
     Promise.all([
       fetchDataset(searchIndexUrl, "json"),
       fetchDataset(`/data/sectors/all.txt`, "json"),
       fetchDataset(`/data/stakeholders/all.txt`, "json"),
       fetchDataset(`/data/pillars/all.txt`, "json"),
-      // fetch(searchIndexUrl).then((res) => res.json()),
-      // fetch(`/data/sectors/all.json`).then((res) => res.json()),
-      // fetch(`/data/stakeholders/all.json`).then((res) => res.json()),
-      // fetch(`/data/pillars/all.json`).then((res) => res.json()),
     ]).then(
       ([bestPracticesIndex, sectorsIndex, stakeholdersIndex, pillarsIndex]) => {
+        isFetching.current = false
         const correctedSearchIndex = [
-          ...bestPracticesIndex.map((d) => ({
+          ...(bestPracticesIndex?.map((d) => ({
             label: d.title,
             href: d.slug,
             type: "best-practice",
             content: d.content || "",
-          })),
-          ...sectorsIndex.map((d) => ({
+          })) || []),
+          ...(sectorsIndex?.map((d) => ({
             label: d.title,
             href: d.slug,
             type: "sector",
             content: "",
-          })),
-          ...stakeholdersIndex.map((d) => ({
+          })) || []),
+          ...(stakeholdersIndex?.map((d) => ({
             label: d.title,
             href: d.slug,
             type: "stakeholder",
             content: "",
-          })),
-          ...pillarsIndex.map((d) => ({
+          })) || []),
+          ...(pillarsIndex?.map((d) => ({
             label: d.title,
             href: d.slug,
             type: "pillar",
             content: "",
-          })),
+          })) || []),
         ].map((d, i) => ({ key: i + 1, ...d }))
 
         setReferenceItems(correctedSearchIndex)
@@ -129,7 +133,7 @@ export default function useQuickSearch({
         setInputItems(groupedItems)
       }
     )
-  }, [searchIndex])
+  }, [searchIndex, referenceItemsCount])
 
   return {
     isOpen,

@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 import { Text, HStack, Stack, Flex, Box } from "@chakra-ui/react"
 import _groupBy from "lodash/groupBy"
 import { AnimatePresence, motion } from "framer-motion"
@@ -16,6 +16,8 @@ export default function CombinedDiagram({
   selectedSector,
   ...props
 }) {
+  const isFetching = useRef(false)
+
   const views = ["Pillar", "Sector"]
   const [currentView, setCurrentView] = useState(selectedView || 0)
 
@@ -30,16 +32,25 @@ export default function CombinedDiagram({
     setRecommendationsBySectorAndPillar,
   ] = useState([])
 
+  const sectorsCount = sectors.length
+  const pillarsCount = pillars.length
+  const recommendationsCount = recommendations.length
+
   useEffect(() => {
-    if (typeof window === "undefined") return
+    if (typeof window === "undefined") return undefined
+    if (!!sectorsCount || !!pillarsCount || !!recommendationsCount)
+      return undefined
+    if (!!isFetching.current) return undefined
+
+    isFetching.current = true
+
     Promise.all([
       fetchDataset("/data/sectors/all.txt", "json"),
       fetchDataset("/data/pillars/all.txt", "json"),
       fetchDataset("/data/actions/all.txt", "json"),
-      // fetch("/data/sectors/all.json").then((res) => res.json()),
-      // fetch("/data/pillars/all.json").then((res) => res.json()),
-      // fetch("/data/actions/all.json").then((res) => res.json()),
     ]).then(([allSectors, allPillars, allActions]) => {
+      isFetching.current = false
+
       setSectors(allSectors)
       setPillars(allPillars)
 
@@ -80,7 +91,7 @@ export default function CombinedDiagram({
 
       setRecommendationsBySectorAndPillar(recommendationsBySectorAndPillar)
     })
-  }, [])
+  }, [sectorsCount, pillarsCount, recommendationsCount])
 
   const handleChange = (d) => {
     setCurrentSummary(d, sectors, pillars)

@@ -51,7 +51,7 @@ function DotGrid({
     <div ref={ref}>
       <svg viewBox={`0 0 ${w} ${h}`} width={w} height={h} {...props}>
         {inView
-          ? rows.map((row) => {
+          ? rows?.map((row) => {
               const rowHasAccents = !row || !(row % (dotCount - 1))
               return (
                 <motion.g
@@ -63,7 +63,7 @@ function DotGrid({
                   animate={{ opacity: 1 }}
                   transition={{ duration: 1, bounce: 0, delay: 0.2 }}
                 >
-                  {columns.map((column, i) => {
+                  {columns?.map((column, i) => {
                     const colHasAccents = !column || !(column % (dotCount - 1))
                     const isAccent = rowHasAccents && colHasAccents
                     const x = (column * tileSize) / dotCount
